@@ -1,38 +1,16 @@
 ---
 import { Icon } from "astro-icon";
-
-const socials = [
-  {
-    name: "Email",
-    description: "A general, catch-all address for anything",
-    url: "mailto:hello@arashnrim.me",
-    linkText: "hello [@] arashnrim [.] me",
-    iconName: "ph:envelope-simple",
-  },
-  {
-    name: "LinkedIn",
-    description: "For professional inquiries and networking",
-    url: "https://linkedin.com/in/arashnrim",
-    linkText: "arashnrim",
-    iconName: "simple-icons:linkedin",
-  },
-  {
-    name: "GitHub",
-    description: "Source code for my projects and contributions",
-    url: "https://github.com/arashnrim",
-    linkText: "arashnrim",
-    iconName: "simple-icons:github",
-  },
-];
+import socials from "../../data/socials";
 ---
 
 <section id="reach" class="container">
   <h1 class="title">Reach</h1>
   <p>
-    Don't be a stranger! Now that you've scrolled this far, I'd love to get to
-    know who you are. If you have the time, feel free to reach out to me through
-    any of the avenues below. Getting to know each other can be a great way to
-    learn and grow, from you to me and vice versa!
+    Don't be a stranger, especially now that you've scrolled this far! I'm
+    always open to new opportunities, whether it's a new project, job, or just a
+    friendly chat. Feel free to hit me up on any of the platforms below. I'm
+    also learning to step out of my comfort zone and meet new people, so I think
+    it's all the more reason to reach out!
   </p>
 
   <div id="reach__grid">
@@ -94,7 +72,7 @@ const socials = [
   [astro-icon] {
     width: 50%;
     position: absolute;
-    opacity: 0;
+    opacity: 0.05;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     transform: rotate(10deg) translateY(10px);
     left: -10%;

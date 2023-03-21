@@ -114,9 +114,10 @@ import { Image } from "@astrojs/image/components";
     <div id="works__graveyard-text">
       <h2 class="subtitle">🪦 Parked projects</h2>
       <p>
-        The grass can look greener on the other side. On the contrary, there are
-        so many ideas I've tried to explore but just couldn't act on making yet.
-        Feel free to adapt one for your own making!
+        I tend to have a lot of ideas that I cannot see through to completion.
+        Consider this a graveyard of projects that I've started but never
+        finished. I'm hoping to revisit them one day, though! Feel free to have
+        a look at making any one of them, if you're keen.
       </p>
     </div>
 
@@ -139,6 +140,13 @@ import { Image } from "@astrojs/image/components";
   #works {
     min-height: 100vh;
     box-sizing: border-box;
+    background-size: 2vw 2vw;
+    background-image: linear-gradient(
+        to right,
+        rgba(30, 30, 30, 0.5) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(30, 30, 30, 0.5) 1px, transparent 1px);
   }
 
   p {
@@ -166,10 +174,15 @@ import { Image } from "@astrojs/image/components";
     position: relative;
     gap: 1em;
     overflow: hidden;
+    /* box-shadow: 0px 4px 0.5em rgba(0, 0, 0, 0.5); */
   }
 
   .works__work > *:not(.works__work-obstructor) {
     z-index: 1;
+  }
+
+  .works__work span.subtitle {
+    font-weight: 700;
   }
 
   .works__work-meta {
@@ -198,7 +211,7 @@ import { Image } from "@astrojs/image/components";
     height: 100%;
     width: 100%;
     background-color: #0a0a0a;
-    opacity: 0.2;
+    opacity: 0.3;
   }
 
   .works__work-spacer {
@@ -244,7 +257,7 @@ import { Image } from "@astrojs/image/components";
 
   .works__work-image {
     position: absolute;
-    filter: grayscale(100%) opacity(0);
+    filter: grayscale(100%) opacity(0.175);
     left: 50%;
     top: 0%;
     transform: rotate(-10deg) translateY(10px) scale(0.5);
@@ -258,7 +271,7 @@ import { Image } from "@astrojs/image/components";
 
   .works__work:hover .works__work-image {
     transform: rotate(-10deg) translateY(0) scale(0.5);
-    filter: grayscale(100%) opacity(0.25);
+    filter: grayscale(100%) opacity(0.3);
   }
 
   [astro-icon] {
@@ -273,6 +286,7 @@ import { Image } from "@astrojs/image/components";
     overflow: scroll;
     position: relative;
     scrollbar-width: none;
+    background-color: #0a0a0a;
   }
 
   #works__graveyard-container::-webkit-scrollbar {

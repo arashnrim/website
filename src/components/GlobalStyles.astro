@@ -20,7 +20,7 @@
 
       --subtitle: clamp(1.5rem, 5vw, 2.5rem);
       --title: clamp(3rem, 5vw, 4rem);
-      --body: clamp(1.25rem, 5vw, 1.4rem);
+      --body: clamp(1.25rem, 5vw, 1.3rem);
     }
   }
 
@@ -42,14 +42,9 @@
   }
 
   .container {
-    padding: var(--section-padding);
-    padding-top: 0;
+    padding: calc(var(--section-padding) / 2) var(--section-padding);
     position: relative;
     overflow: hidden;
-  }
-
-  :not(.container) + .container {
-    padding-top: var(--section-padding);
   }
 
   p,
