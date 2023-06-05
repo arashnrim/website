@@ -118,4 +118,14 @@
       animation: none;
     }
   }
+
+  @media screen and (min-width: 1024px) {
+    :root {
+      --section-padding: 12em;
+    }
+
+    .container {
+      padding: calc(var(--section-padding) / 3) var(--section-padding);
+    }
+  }
 </style>

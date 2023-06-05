@@ -7,12 +7,12 @@ import { Image } from "@astrojs/image/components";
 ---
 
 <section id="works" class="container">
-  <h1 class="title">Works</h1>
+  <h1 class="title">Show and tell!</h1>
   <p>
-    It's time for show and tell! Here are some of my favourite projects. I love
-    the concept of learning in public, so I'm doing my best to make everything I
-    do as open-source as I can. Even if that means exposing API keys from time
-    to time. Or doxing yourself.
+    Working on personal projects is my favourite pasttime. I love the concept of
+    learning something new and especially getting the chance to dip my toes by
+    directly applying it to a project. An additional plus if the final result
+    looks good too, but I'll leave that for you to decide!
   </p>
 
   <div id="works__works-container">
@@ -140,13 +140,13 @@ import { Image } from "@astrojs/image/components";
   #works {
     min-height: 100vh;
     box-sizing: border-box;
-    background-size: 2vw 2vw;
+    background-size: 5vw 5vw;
     background-image: linear-gradient(
         to right,
-        rgba(30, 30, 30, 0.5) 1px,
+        rgba(30, 30, 30, 0.75) 1px,
         transparent 1px
       ),
-      linear-gradient(to bottom, rgba(30, 30, 30, 0.5) 1px, transparent 1px);
+      linear-gradient(to bottom, rgba(30, 30, 30, 0.75) 1px, transparent 1px);
   }
 
   p {
@@ -170,7 +170,7 @@ import { Image } from "@astrojs/image/components";
     padding: 2em;
     box-sizing: border-box;
     user-select: none;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.125s ease-in-out;
     position: relative;
     gap: 1em;
     overflow: hidden;
@@ -271,7 +271,7 @@ import { Image } from "@astrojs/image/components";
 
   .works__work:hover .works__work-image {
     transform: rotate(-10deg) translateY(0) scale(0.5);
-    filter: grayscale(100%) opacity(0.3);
+    filter: grayscale(100%) opacity(0.65);
   }
 
   [astro-icon] {
@@ -312,7 +312,7 @@ import { Image } from "@astrojs/image/components";
     background-color: #1f1f1f;
     min-width: 17.5vw;
     border-radius: var(--radius);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.15s ease-in-out;
     overflow-y: visible;
   }
 

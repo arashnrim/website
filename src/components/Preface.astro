@@ -1,63 +1,67 @@
-<section id="wall" class="container">
-  <p>
-    I'm a fellow human interested in technology. Coming with an innate passion
-    for tech, I study information technology at a polytechnic in Singapore,
-    embark on interesting personal projects (when I have the time), and <span
-      id="wall__errors">rage at random and obscure errors</span
-    > from time to time.
-  </p>
-  <p>
-    For as long as I can remember, tech has been my kind of thing, and I'm
-    excited to see how it plays a role in my future! I've been coding since 2019
-    (<span id="wall__time">a few</span> years ago!) when I was introduced to programming
-    with Arduino. I'm slowly exploring new domains of programming ever since, like
-    front-end development, mobile app development, and a bit of UI and UX.
-  </p>
-  <p>
-    Beyond that, I'm trying my best to learn something different and
-    new—discovering the community behind code, helping plan workshops for a
-    hackathon, and writing about fascinating things—and I do my best documenting
-    my journey publically, as learning in public is something I try to show in
-    my work!
-  </p>
-  <p>
-    I'm excited to get to know new people. Read more about me as you explore my
-    space on the internet, and feel free to reach out if you'd like to say hi!
-  </p>
+<section id="preface" class="container">
+  <div>
+    <p>
+      I'm a fellow human interested in technology. Coming with an innate passion
+      for tech, I study information technology at a polytechnic in Singapore,
+      embark on interesting personal projects (when I have the time), and <span
+        id="preface__errors">rage at random and obscure errors</span
+      > from time to time.
+    </p>
+    <p>
+      For as long as I can remember, tech has been my kind of thing, and I'm
+      excited to see how it plays a role in my future! I've been coding since
+      2019 (<code id="preface__time">a few</code> years ago!) when I was introduced
+      to programming with Arduino. I'm slowly exploring new domains of programming
+      ever since, like front-end development, mobile app development, and a bit of
+      UI and UX.
+    </p>
+    <p>
+      Beyond that, I'm trying my best to learn something different and
+      new—discovering the community behind code, helping plan workshops for a
+      hackathon, and writing about fascinating things—and I do my best
+      documenting my journey publically, as learning in public is something I
+      try to show in my work!
+    </p>
+    <p>
+      I'm excited to get to know new people. Read more about me as you explore
+      my space on the internet, and feel free to reach out if you'd like to say
+      hi!
+    </p>
 
-  <figure>
-    <code class="sprinkle" style="--rotate: -15deg">
-      Compilation error (line 8, col 12): ; expected
-    </code>
-    <code class="sprinkle" style="--rotate: 5deg">
-      Access to fetch at '???' from origin 'https://arashnrim.me' has been
-      blocked by CORS policy
-    </code>
-    <code class="sprinkle" style="--rotate: 0deg">
-      Uncaught TypeError: Cannot read property 'foo' of undefined at
-      anonymous:1:5
-    </code>
-    <code class="sprinkle" style="--rotate: -10deg">
-      Stack overflow.<br />
-      Repeat 24077 times:
-    </code>
-  </figure>
+    <figure>
+      <code class="sprinkle" style="--rotate: -15deg">
+        Compilation error (line 8, col 12): ; expected
+      </code>
+      <code class="sprinkle" style="--rotate: 5deg">
+        Access to fetch at '???' from origin 'https://arashnrim.me' has been
+        blocked by CORS policy
+      </code>
+      <code class="sprinkle" style="--rotate: 0deg">
+        Uncaught TypeError: Cannot read property 'foo' of undefined at
+        anonymous:1:5
+      </code>
+      <code class="sprinkle" style="--rotate: -10deg">
+        Stack overflow.<br />
+        Repeat 24077 times:
+      </code>
+    </figure>
+  </div>
 </section>
 
 <script>
-  const wall__time = document.getElementById("wall__time");
+  const preface__time = document.getElementById("preface__time");
   setInterval(() => {
     const time = new Date().valueOf() - new Date("02/01/2019").valueOf();
     const years = time / 31536000000;
-    wall__time.textContent = "~" + years.toFixed(8);
+    preface__time.textContent = "~" + years.toFixed(8);
   }, 100);
 
-  const wall__errors = document.getElementById("wall__errors");
-  const text = document.getElementById("wall").querySelectorAll("p");
+  const preface__errors = document.getElementById("preface__errors");
+  const text = document.getElementById("preface").querySelectorAll("p");
   const sprinkles = document
-    .getElementById("wall")
+    .getElementById("preface")
     .querySelectorAll(".sprinkle");
-  wall__errors.addEventListener("mouseenter", () => {
+  preface__errors.addEventListener("mouseenter", () => {
     text.forEach((p) => {
       p.style.opacity = "0.1";
     });
@@ -65,7 +69,7 @@
       (s as HTMLElement).style.opacity = "1";
     });
   });
-  wall__errors.addEventListener("mouseleave", () => {
+  preface__errors.addEventListener("mouseleave", () => {
     text.forEach((p) => {
       p.removeAttribute("style");
     });
@@ -73,7 +77,7 @@
       (s as HTMLElement).style.opacity = "0.15";
     });
   });
-  wall__errors.addEventListener("touchleave", () => {
+  preface__errors.addEventListener("touchleave", () => {
     text.forEach((p) => {
       p.removeAttribute("style");
     });
@@ -84,11 +88,20 @@
 </script>
 
 <style>
-  #wall > p {
+  #preface {
+    min-height: 75vh;
+    display: flex;
+  }
+
+  #preface > div {
+    margin: auto;
+  }
+
+  #preface > div > p {
     transition: opacity 0.2s ease;
   }
 
-  #wall__errors {
+  #preface__errors {
     text-decoration: 1.75px dotted underline red;
     cursor: help;
   }
@@ -141,7 +154,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    #wall > p {
+    #preface > p {
       transition: none;
     }
 

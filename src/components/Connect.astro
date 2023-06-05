@@ -3,20 +3,20 @@ import { Icon } from "astro-icon";
 import socials from "../../data/socials";
 ---
 
-<section id="reach" class="container">
-  <h1 class="title">Reach</h1>
+<section id="connect" class="container">
+  <h1 class="title">Let's reach out!</h1>
   <p>
     Don't be a stranger, especially now that you've scrolled this far! I'm
-    always open to new opportunities, whether it's a new project, job, or just a
-    friendly chat. Feel free to hit me up on any of the platforms below. I'm
-    also learning to step out of my comfort zone and meet new people, so I think
-    it's all the more reason to reach out!
+    always open to hearing about new opportunities, whether it's a new project,
+    job, or just a friendly chat. Feel free to hit me up on any of the platforms
+    below. I'm also learning to step out of my comfort zone and meet new people,
+    so I think it's all the more reason to connect out!
   </p>
 
-  <div id="reach__grid">
+  <div id="connect__grid">
     {
       socials.map((social) => (
-        <div class="reach__grid__item">
+        <div class="connect__grid__item">
           <Icon name={social.iconName} />
           <h2>{social.name}</h2>
           <span class="subtitle">
@@ -32,14 +32,14 @@ import socials from "../../data/socials";
 </section>
 
 <style>
-  #reach__grid {
+  #connect__grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3em;
     margin-top: 3rem;
   }
 
-  .reach__grid__item {
+  .connect__grid__item {
     width: auto;
     overflow-x: scroll;
     position: relative;
@@ -50,22 +50,22 @@ import socials from "../../data/socials";
     transition: transform 0.3s ease-in-out;
   }
 
-  .reach__grid__item:hover {
+  .connect__grid__item:hover {
     transform: translateY(-5px);
   }
 
-  .reach__grid__item > h2,
-  .reach__grid__item > p {
+  .connect__grid__item > h2,
+  .connect__grid__item > p {
     margin: 0;
   }
 
-  .reach__grid__item > span {
+  .connect__grid__item > span {
     display: block;
     line-height: 1.28;
     margin: 0.5em 0;
   }
 
-  .reach__grid__item > span > a {
+  .connect__grid__item > span > a {
     font-weight: 700;
   }
 
@@ -80,7 +80,7 @@ import socials from "../../data/socials";
     pointer-events: none;
   }
 
-  .reach__grid__item:hover [astro-icon] {
+  .connect__grid__item:hover [astro-icon] {
     opacity: 0.1;
     transform: rotate(10deg) translateY(0);
   }

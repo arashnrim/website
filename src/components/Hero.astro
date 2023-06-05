@@ -5,23 +5,22 @@ import { Image } from "@astrojs/image/components";
 
 <section id="hero">
   <div id="hero__gallery">
-    <div>
-      {
-        images.map((image, index) => (
-          <Image
-            src={image.src}
-            alt={image.alt}
-            height={360}
-            width={undefined}
-            aspectRatio={16 / 9}
-            loading={index > 1 ? "lazy" : "eager"}
-            format="webp"
-            style={{ "--animation-order": index }}
-          />
-        ))
-      }
-    </div>
     <span>Scroll right for more pictures! →</span>
+    {
+      images.map((image, index) => (
+        <Image
+          src={image.src}
+          alt={image.alt}
+          height={360}
+          width={undefined}
+          aspectRatio={16 / 9}
+          loading={index > 1 ? "lazy" : "eager"}
+          format="webp"
+          style={{ "--animation-order": index }}
+          draggable={false}
+        />
+      ))
+    }
   </div>
 
   <div id="hero__text">
@@ -36,7 +35,7 @@ import { Image } from "@astrojs/image/components";
 <script>
   import images from "../../data/heroImages";
 
-  const imageElements = document.querySelectorAll("#hero__gallery > div > img");
+  const imageElements = document.querySelectorAll("#hero__gallery > img");
   const missionElement = document.querySelector("#hero__text > h2");
   imageElements.forEach((imageElement, index) => {
     imageElement.addEventListener("mouseenter", () => {
@@ -73,32 +72,23 @@ import { Image } from "@astrojs/image/components";
     position: relative;
     min-height: 100vh;
     overflow-x: scroll;
-    scrollbar-width: none;
     display: flex;
-    background: radial-gradient(#1f1f1f, 2px, transparent 3px) 0 0 / 50px 50px;
-    background-color: #0a0a0a;
-  }
-
-  #hero::-webkit-scrollbar {
-    width: 0;
+    background: radial-gradient(#1f1f1f, 2.5px, transparent 3px) 0 0 / 50px 50px;
   }
 
   #hero__gallery {
     display: flex;
     position: absolute;
-    flex-direction: column;
-  }
-
-  #hero__gallery > div {
-    display: flex;
     gap: 1.5em;
   }
 
   #hero__gallery > span {
-    opacity: 0.5;
+    opacity: 0.4;
     width: fit-content;
+    position: absolute;
     margin-top: 0.5em;
     margin-left: 0.5em;
+    z-index: 5;
   }
 
   @keyframes loading {
@@ -113,7 +103,7 @@ import { Image } from "@astrojs/image/components";
     }
   }
 
-  #hero__gallery > div > img {
+  #hero__gallery > img {
     height: 360px;
     filter: grayscale(100%) brightness(50%);
     transition: filter 0.2s ease-in-out, opacity 0.2s ease-in-out;
@@ -122,7 +112,7 @@ import { Image } from "@astrojs/image/components";
     animation-fill-mode: backwards;
   }
 
-  #hero__gallery > div > img:hover {
+  #hero__gallery > img:hover {
     filter: grayscale(0%);
     opacity: 1;
   }
@@ -140,6 +130,8 @@ import { Image } from "@astrojs/image/components";
     );
     border-radius: var(--radius);
     animation: 0.75s ease 0s 1 present;
+    background-color: #0a0a0a;
+    border: 3px solid #1f1f1f;
   }
 
   #hero__text > span {
@@ -152,10 +144,16 @@ import { Image } from "@astrojs/image/components";
     margin: 0;
   }
 
-  @media only screen and (min-width: 640px) {
+  @media only screen and (min-width: 960px) {
     #hero__text {
-      background-color: #0a0a0a;
-      border: 3px solid #1f1f1f;
+      max-width: 65%;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    #hero__text {
+      left: calc(var(--section-padding) / 2 - 2em);
+      margin: calc(var(--section-padding) / 2 - 2em);
     }
   }
 </style>
