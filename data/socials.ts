@@ -20,6 +20,13 @@ const socials = [
     linkText: "arashnrim",
     iconName: "simple-icons:github",
   },
+  {
+    name: "Figma",
+    description: "Design works (usually UI/UX experiments)",
+    url: "https://www.figma.com/@arashnrim",
+    linkText: "arashnrim",
+    iconName: "simple-icons:figma",
+  },
 ];
 
 export default socials;
