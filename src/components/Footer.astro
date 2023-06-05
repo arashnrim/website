@@ -1,0 +1,42 @@
+<footer class="container">
+    <div class="footer__code">
+        <code
+            ><code style="display: inline; color: cyan">~/website-v4</code> on
+            <code style="display: inline; color: purple">main</code></code
+        >
+        <code
+            ><code style="display: inline; color: lightgreen">%</code> cat thank-you.txt</code
+        >
+        <code>Thanks for stopping by; keep being awesome!</code>
+        <code
+            >Made with &lt;3 by <a href="/#connect">@arashnrim</a>. Wanna <a
+                href="https://github.com/arashnrim/website"
+                target="_blank"
+                rel="noopener noreferrer">have a look</a
+            >?</code
+        >
+    </div>
+</footer>
+
+<style>
+    footer {
+        border-top: 2px solid #1f1f1f;
+        margin-top: calc(var(--section-padding) / 2);
+    }
+
+    .footer__code {
+        display: flex;
+        flex-direction: column;
+        font-size: calc(var(--body) - 0.25em);
+    }
+
+    .footer__code * {
+        font-family: "JetBrains Mono", "Courier New", Courier, monospace !important;
+    }
+
+    @media only screen and (min-width: 1024px) {
+        footer {
+            margin-top: calc(var(--section-padding) / 3);
+        }
+    }
+</style>
