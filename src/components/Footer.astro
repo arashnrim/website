@@ -1,3 +1,7 @@
+---
+import socials from "../../data/socials";
+---
+
 <footer class="container">
     <div class="footer__code">
         <code
@@ -9,10 +13,32 @@
         >
         <code>Thanks for stopping by; keep being awesome!</code>
         <code
+            >You can find me through {
+                socials.map((social, index) => (
+                    <>
+                        <a
+                            style="display: inline-block"
+                            href={social.url}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                        >
+                            {social.name === "Email" ? "email" : social.name}
+                        </a>
+                        {index === socials.length - 1
+                            ? "."
+                            : index === socials.length - 2
+                            ? ", and "
+                            : ", "}
+                    </>
+                ))
+            }</code
+        >
+
+        <code
             >Made with &lt;3 by <a href="/#connect">@arashnrim</a>. Wanna <a
                 href="https://github.com/arashnrim/website"
                 target="_blank"
-                rel="noopener noreferrer">have a look</a
+                rel="noopener noreferrer">have a look at the code</a
             >?</code
         >
     </div>
