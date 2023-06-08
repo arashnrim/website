@@ -80,6 +80,8 @@ import { Image } from "@astrojs/image/components";
     display: flex;
     position: absolute;
     gap: 1.5em;
+    background-color: #0a0a0a;
+    z-index: 2;
   }
 
   #hero__gallery > span {
@@ -88,7 +90,7 @@ import { Image } from "@astrojs/image/components";
     position: absolute;
     margin-top: 0.5em;
     margin-left: 0.5em;
-    z-index: 5;
+    z-index: 3;
   }
 
   @keyframes loading {
@@ -110,6 +112,7 @@ import { Image } from "@astrojs/image/components";
     animation: 0.75s ease calc(var(--animation-order) * 200ms) 1 present,
       3s ease-in-out infinite loading;
     animation-fill-mode: backwards;
+    z-index: 2;
   }
 
   #hero__gallery > img:hover {
