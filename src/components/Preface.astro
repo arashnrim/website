@@ -85,6 +85,22 @@
       (s as HTMLElement).removeAttribute("style");
     });
   });
+
+  // Sprinkles around the code blocks and only when they're in view for performance
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        sprinkles.forEach((s) => {
+          (s as HTMLElement).style.animationPlayState = "running";
+        });
+      } else {
+        sprinkles.forEach((s) => {
+          (s as HTMLElement).style.animationPlayState = "paused";
+        });
+      }
+    });
+  });
+  observer.observe(document.getElementById("preface")!);
 </script>
 
 <style>

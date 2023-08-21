@@ -58,6 +58,7 @@ import { Image } from "@astrojs/image/components";
                 quality={50}
                 format={"webp"}
                 alt={project.name}
+                loading="lazy"
               />
             )}
             {gradient ? <div class="works__work-obstructor" /> : ""}
@@ -261,6 +262,7 @@ import { Image } from "@astrojs/image/components";
     filter: grayscale(100%) opacity(0.175);
     left: 50%;
     top: 0%;
+    will-change: transform;
     transform: rotate(-10deg) translateY(10px) scale(0.5);
     transform-origin: top left;
     transition: filter 0.3s ease-in-out 0.1s, transform 0.3s ease-in-out 0.1s;

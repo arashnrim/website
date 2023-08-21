@@ -3,65 +3,65 @@ import { Icon } from "astro-icon";
 ---
 
 <header>
-    <a href="#preface">
-        <Icon name="ph:question" />
-    </a>
-    <a href="#works">
-        <Icon name="ph:archive" />
-    </a>
-    <a href="#skills">
-        <Icon name="ph:wrench" />
-    </a>
-    <a href="#connect">
-        <Icon name="ph:hand-waving" />
-    </a>
+  <a href="#preface">
+    <Icon name="ph:question" />
+  </a>
+  <a href="#works">
+    <Icon name="ph:archive" />
+  </a>
+  <a href="#skills">
+    <Icon name="ph:wrench" />
+  </a>
+  <a href="#connect">
+    <Icon name="ph:hand-waving" />
+  </a>
 </header>
 
 <style>
-    header {
-        background-color: #0a0a0a88;
-        backdrop-filter: blur(2em);
-        border-radius: 1em;
-        border: 3px solid #1f1f1f;
-        position: fixed;
-        margin-top: 2em;
-        padding: 0.25em;
-        z-index: 2;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 0.25em;
-        opacity: 0.5;
-        transition: opacity 0.125s ease-in-out;
-    }
+  header {
+    background-color: #0a0a0a88;
+    backdrop-filter: blur(2em);
+    border-radius: 1em;
+    border: 3px solid #1f1f1f;
+    position: fixed;
+    margin-top: 2em;
+    padding: 0.25em;
+    z-index: 3;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.25em;
+    opacity: 0.5;
+    transition: opacity 0.125s ease-in-out;
+  }
 
-    header:hover {
-        opacity: 1;
-    }
+  header:hover {
+    opacity: 1;
+  }
 
-    header a {
-        border: none !important;
-        border-radius: 0.75em;
-        display: block;
-        height: fit-content;
-        width: fit-content;
-        padding: 0 !important;
-        transition: background-color 0.125s ease-in-out;
-    }
+  header a {
+    border: none !important;
+    border-radius: 0.75em;
+    display: block;
+    height: fit-content;
+    width: fit-content;
+    padding: 0 !important;
+    transition: background-color 0.125s ease-in-out;
+  }
 
-    header a:hover {
-        background-color: #1f1f1f;
-    }
+  header a:hover {
+    background-color: #1f1f1f;
+  }
 
-    [astro-icon] {
-        min-height: 2em;
-        height: calc(var(--subtitle) - 0.5em);
-        padding: 0.5em;
-        aspect-ratio: 1 / 1;
-        display: block;
-    }
+  [astro-icon] {
+    min-height: 2em;
+    height: calc(var(--subtitle) - 0.5em);
+    padding: 0.5em;
+    aspect-ratio: 1 / 1;
+    display: block;
+  }
 
-    @media only screen and (min-width: 1024px) {
-        margin-top: 2em;
-    }
+  @media only screen and (min-width: 1024px) {
+    margin-top: 2em;
+  }
 </style>
