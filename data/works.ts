@@ -12,11 +12,7 @@ interface Project {
   largeTile?: boolean;
   year?: number;
   image?: ImageMetadata;
-  backgroundColor?: {
-    hue: number;
-    saturation: number;
-    lightness: number;
-  };
+  backgroundColor?: string;
 }
 
 import commute from "../public/images/works/commute.png";
@@ -40,11 +36,7 @@ const projects: Project[] = [
     largeTile: true,
     year: 2022,
     image: commute,
-    backgroundColor: {
-      hue: 218,
-      saturation: 1,
-      lightness: 0.5,
-    },
+    backgroundColor: "#005DFF",
   },
   {
     name: "tp",
@@ -68,11 +60,7 @@ const projects: Project[] = [
     largeTile: false,
     year: 2019,
     image: upgrade,
-    backgroundColor: {
-      hue: 263,
-      saturation: 0.77,
-      lightness: 0.62,
-    },
+    backgroundColor: "#8D53E9",
   },
   {
     name: "Listé",
@@ -87,11 +75,7 @@ const projects: Project[] = [
     largeTile: false,
     year: 2019,
     // image: liste,
-    backgroundColor: {
-      hue: 9,
-      saturation: 1,
-      lightness: 0.5,
-    },
+    backgroundColor: "#FF2600",
   },
   {
     name: "feducia",
@@ -110,11 +94,7 @@ const projects: Project[] = [
     largeTile: false,
     year: 2022,
     image: feducia,
-    backgroundColor: {
-      hue: 218,
-      saturation: 0.77,
-      lightness: 0.49,
-    },
+    backgroundColor: "#1D63DD",
   },
   {
     name: "Desperate Defenders",

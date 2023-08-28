@@ -2,7 +2,6 @@
 import projects from "../../data/works";
 import scrappedProjects from "../../data/scrapped";
 import { Icon } from "astro-icon";
-import easyMeshGradient from "easy-mesh-gradient";
 import { Image } from "@astrojs/image/components";
 ---
 
@@ -24,31 +23,13 @@ import { Image } from "@astrojs/image/components";
             "Project is missing required fields:\n" + JSON.stringify(project)
           );
         }
-        let gradient;
-        if (project.backgroundColor !== undefined) {
-          gradient = easyMeshGradient({
-            hueRange: [
-              project.backgroundColor.hue - 15,
-              project.backgroundColor.hue + 15,
-            ],
-            saturationRange: [
-              project.backgroundColor.saturation - 0.1,
-              project.backgroundColor.saturation + 0.1,
-            ],
-            lightnessRange: [
-              project.backgroundColor.lightness - 0.1,
-              project.backgroundColor.lightness + 0.1,
-            ],
-            seed: "97FeI8GsD0vMwctQ",
-          });
-        }
 
         return (
           <div
             class={`works__work ${
               project.largeTile ? "works__work-large" : ""
             }`}
-            style={gradient ? `background: ${gradient}` : ""}
+            style={`--projectColor: ${project.backgroundColor ?? "#1f1f1f"}`}
           >
             {project.image !== undefined && (
               <Image
@@ -62,7 +43,7 @@ import { Image } from "@astrojs/image/components";
                 loading="lazy"
               />
             )}
-            {gradient ? <div class="works__work-obstructor" /> : ""}
+            <div class="works__work-obstructor" />
             <div class="works__work-meta">
               {
                 <span class="badge" style="--badge-color: #3d3d3d">
@@ -170,6 +151,7 @@ import { Image } from "@astrojs/image/components";
     grid-column: span 2;
     background: #1f1f1f;
     border-radius: var(--radius);
+    background-color: var(--projectColor);
     padding: 2em;
     box-sizing: border-box;
     user-select: none;
