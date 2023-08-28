@@ -21,8 +21,27 @@ import feducia from "../public/images/works/feducia.png";
 // import liste from "../public/images/works/liste.png";
 import tp from "../public/images/works/tp.png";
 import upgrade from "../public/images/works/upgrade.png";
+import beacon from "../public/images/works/beacon.png";
+import xtrabuddy from "../public/images/works/xtrabuddy.png";
 
 const projects: Project[] = [
+  {
+    name: "Beacon",
+    githubLink: "https://github.com/pikanotjx/sutdwasdoftime",
+    websiteLink: "https://devpost.com/software/beacon-42m7ih",
+    tech: [
+      { friendlyName: "Python", iconName: "python" },
+      { friendlyName: "Google Cloud Platform", iconName: "googlecloud" },
+      { friendlyName: "ESP32", iconName: "espressif" },
+      { friendlyName: "Arduino", iconName: "arduino" },
+    ],
+    description:
+      "An automated IOT system for people with disabilities to adjust impediments in their environment to their needs.",
+    largeTile: false,
+    year: 2023,
+    image: beacon,
+    backgroundColor: "#F3BC2B",
+  },
   {
     name: "Commute",
     githubLink: "https://github.com/arashnrim/commute",
@@ -37,6 +56,22 @@ const projects: Project[] = [
     year: 2022,
     image: commute,
     backgroundColor: "#005DFF",
+  },
+  {
+    name: "XtraBuddy",
+    websiteLink:
+      "https://play.google.com/store/apps/details?id=sg.edu.np.mad.xtrabuddy",
+    tech: [
+      { friendlyName: "Java", iconName: "java" },
+      { friendlyName: "Android SDK", iconName: "android" },
+      { friendlyName: "Firebase", iconName: "firebase" },
+    ],
+    description:
+      "An Android app that helps you find buddies to do activities with.",
+    largeTile: false,
+    year: 2022,
+    image: xtrabuddy,
+    backgroundColor: "#0080FF",
   },
   {
     name: "tp",
@@ -72,7 +107,7 @@ const projects: Project[] = [
       { friendlyName: "Firebase", iconName: "firebase" },
     ],
     description: "An open-sourced to-do list app made for everyone.",
-    largeTile: false,
+    largeTile: true,
     year: 2019,
     // image: liste,
     backgroundColor: "#FF2600",
@@ -102,7 +137,7 @@ const projects: Project[] = [
     tech: [{ friendlyName: "Python", iconName: "python" }],
     description:
       "A small CLI tower defence game made with Python for a school assignment.",
-    largeTile: true,
+    largeTile: false,
     year: 2022,
     image: desperateDefenders,
   },

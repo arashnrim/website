@@ -27,6 +27,13 @@ const socials = [
     linkText: "arashnrim",
     iconName: "simple-icons:figma",
   },
+  {
+    name: "Devpost",
+    description: "Hackathon projects and submissions",
+    url: "https://devpost.com/arashnrim",
+    linkText: "arashnrim",
+    iconName: "simple-icons:devpost",
+  },
 ];
 
 export default socials;

@@ -48,28 +48,20 @@ import { Image } from "@astrojs/image/components";
 
   imageElements.forEach((imageElement, index) => {
     imageElement.addEventListener(eventStart, () => {
-      if (!supportsHover) {
-        if (timeout) clearTimeout(timeout);
-        timeout = setTimeout(() => {
-          missionElement.textContent =
-            "I'm learning to create designed, intuitive, and practical products using technology.";
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        missionElement.textContent =
+          "I'm learning to create designed, intuitive, and practical products using technology.";
+        imageElements.forEach((imageElement) => {
           (imageElement as HTMLElement).style.filter =
             "grayScale(100%) brightness(50%)";
-        }, 2500);
-      }
-      missionElement.textContent = images[index].text;
+        });
+      }, 2500);
+
+      missionElement.innerHTML = images[index].text;
       (imageElement as HTMLElement).style.filter =
         "grayScale(0%) brightness(100%)";
     });
-
-    if (supportsHover) {
-      imageElement.addEventListener(eventEnd, () => {
-        missionElement.textContent =
-          "I'm learning to create designed, intuitive, and practical products using technology.";
-        (imageElement as HTMLElement).style.filter =
-          "grayScale(100%) brightness(50%)";
-      });
-    }
   });
 
   if (!supportsHover) {
