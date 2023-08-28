@@ -53,15 +53,21 @@ import { Image } from "@astrojs/image/components";
         timeout = setTimeout(() => {
           missionElement.textContent =
             "I'm learning to create designed, intuitive, and practical products using technology.";
+          (imageElement as HTMLElement).style.filter =
+            "grayScale(100%) brightness(50%)";
         }, 2500);
       }
       missionElement.textContent = images[index].text;
+      (imageElement as HTMLElement).style.filter =
+        "grayScale(0%) brightness(100%)";
     });
 
     if (supportsHover) {
       imageElement.addEventListener(eventEnd, () => {
         missionElement.textContent =
           "I'm learning to create designed, intuitive, and practical products using technology.";
+        (imageElement as HTMLElement).style.filter =
+          "grayScale(100%) brightness(50%)";
       });
     }
   });
@@ -142,11 +148,6 @@ import { Image } from "@astrojs/image/components";
     animation: 0.75s ease calc(var(--animation-order) * 200ms) 1 present,
       3s ease-in-out infinite loading;
     animation-fill-mode: backwards;
-  }
-
-  #hero__gallery > img:hover {
-    filter: grayscale(0%);
-    opacity: 1;
   }
 
   #hero__text {
