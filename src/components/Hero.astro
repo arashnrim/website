@@ -5,7 +5,10 @@ import { Image } from "@astrojs/image/components";
 
 <section id="hero">
   <div id="hero__gallery">
-    <span>Scroll right for more pictures! →</span>
+    <div id="hero__gallery-text">
+      <span>Scroll right for more pictures! →</span>
+      <span>Hover over them, too!</span>
+    </div>
     {
       images.map((image, index) => (
         <Image
@@ -37,16 +40,40 @@ import { Image } from "@astrojs/image/components";
 
   const imageElements = document.querySelectorAll("#hero__gallery > img");
   const missionElement = document.querySelector("#hero__text > h2");
+
+  const supportsHover = window.matchMedia("(hover: hover)").matches;
+  const eventStart = supportsHover ? "mouseenter" : "click";
+  const eventEnd = supportsHover ? "mouseleave" : "click";
+  let timeout;
+
   imageElements.forEach((imageElement, index) => {
-    imageElement.addEventListener("mouseenter", () => {
+    imageElement.addEventListener(eventStart, () => {
+      if (!supportsHover) {
+        if (timeout) clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          missionElement.textContent =
+            "I'm learning to create designed, intuitive, and practical products using technology.";
+        }, 2500);
+      }
       missionElement.textContent = images[index].text;
     });
 
-    imageElement.addEventListener("mouseleave", () => {
-      missionElement.textContent =
-        "I'm learning to create designed, intuitive, and practical products using technology.";
-    });
+    if (supportsHover) {
+      imageElement.addEventListener(eventEnd, () => {
+        missionElement.textContent =
+          "I'm learning to create designed, intuitive, and practical products using technology.";
+      });
+    }
   });
+
+  if (!supportsHover) {
+    // Replaces the text in the second span element in #hero__gallery-text on non-hover devices
+    (
+      document.querySelector(
+        "#hero__gallery-text > span:last-child"
+      ) as HTMLElement
+    ).textContent = "Tap on them, too!";
+  }
 
   const greetings = ["Hey!", "Hello!", "Hi there,", "Hiya,", "Selamat datang!"];
   setInterval(() => {
@@ -79,18 +106,21 @@ import { Image } from "@astrojs/image/components";
   #hero__gallery {
     display: flex;
     position: absolute;
-    gap: 1.5em;
     background-color: #0a0a0a;
     z-index: 2;
   }
 
-  #hero__gallery > span {
+  #hero__gallery-text {
     opacity: 0.4;
     width: fit-content;
     position: absolute;
     margin-top: 0.5em;
     margin-left: 0.5em;
     z-index: 3;
+  }
+
+  #hero__gallery-text > span {
+    display: block;
   }
 
   @keyframes loading {
@@ -112,7 +142,6 @@ import { Image } from "@astrojs/image/components";
     animation: 0.75s ease calc(var(--animation-order) * 200ms) 1 present,
       3s ease-in-out infinite loading;
     animation-fill-mode: backwards;
-    z-index: 2;
   }
 
   #hero__gallery > img:hover {
@@ -135,6 +164,7 @@ import { Image } from "@astrojs/image/components";
     animation: 0.75s ease 0s 1 present;
     background-color: #0a0a0a;
     border: 3px solid #1f1f1f;
+    z-index: 2;
   }
 
   #hero__text > span {
