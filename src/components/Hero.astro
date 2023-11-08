@@ -41,11 +41,12 @@ import { Image } from "astro:assets";
 
   const supportsHover = window.matchMedia("(hover: hover)").matches;
   const eventStart = supportsHover ? "mouseenter" : "click";
-  const eventEnd = supportsHover ? "mouseleave" : "click";
-  let timeout;
+  let timeout: number;
+  let activeElement: HTMLElement | null = null;
 
   imageElements.forEach((imageElement, index) => {
     imageElement.addEventListener(eventStart, () => {
+      if (missionElement === null) return;
       if (timeout) clearTimeout(timeout);
       timeout = setTimeout(() => {
         missionElement.textContent =
@@ -53,12 +54,22 @@ import { Image } from "astro:assets";
         imageElements.forEach((imageElement) => {
           (imageElement as HTMLElement).style.filter =
             "grayScale(100%) brightness(50%)";
+          (imageElement as HTMLElement).style.borderRadius = "0";
         });
       }, 2500);
+
+      if (activeElement) {
+        (activeElement as HTMLElement).style.filter =
+          "grayScale(100%) brightness(50%)";
+        (activeElement as HTMLElement).style.borderRadius = "0";
+      }
 
       missionElement.innerHTML = images[index].text;
       (imageElement as HTMLElement).style.filter =
         "grayScale(0%) brightness(100%)";
+      (imageElement as HTMLElement).style.borderRadius = "var(--radius)";
+
+      activeElement = imageElement as HTMLElement;
     });
   });
 
@@ -74,6 +85,8 @@ import { Image } from "astro:assets";
   const greetings = ["Hey!", "Hello!", "Hi there,", "Hiya,", "Selamat datang!"];
   setInterval(() => {
     const greetingElement = document.querySelector("#hero__text > span");
+    if (greetingElement === null) return;
+
     const randomGreeting =
       greetings[Math.floor(Math.random() * greetings.length)];
     greetingElement.textContent = randomGreeting + " I'm Arash.";
@@ -96,14 +109,16 @@ import { Image } from "astro:assets";
     min-height: 100vh;
     overflow-x: scroll;
     display: flex;
-    background: radial-gradient(#1f1f1f, 2.5px, transparent 3px) 0 0 / 50px 50px;
+    background:
+      radial-gradient(#1f1f1f, 2.5px, transparent 3px) 0 0 / 50px 50px,
+      linear-gradient(to bottom, #0a0a0a, transparent 500%);
+    z-index: 3;
   }
 
   #hero__gallery {
     display: flex;
     position: absolute;
     background-color: #0a0a0a;
-    z-index: 2;
   }
 
   #hero__gallery-text {
@@ -112,7 +127,6 @@ import { Image } from "astro:assets";
     position: absolute;
     margin-top: 0.5em;
     margin-left: 0.5em;
-    z-index: 3;
   }
 
   #hero__gallery-text > span {
@@ -136,7 +150,8 @@ import { Image } from "astro:assets";
     filter: grayscale(100%) brightness(50%);
     transition:
       filter 0.2s ease-in-out,
-      opacity 0.2s ease-in-out;
+      opacity 0.2s ease-in-out,
+      border-radius 0.2s ease-out;
     animation:
       0.75s ease calc(var(--animation-order) * 200ms) 1 present,
       3s ease-in-out infinite loading;
@@ -158,7 +173,6 @@ import { Image } from "astro:assets";
     animation: 0.75s ease 0s 1 present;
     background-color: #0a0a0a;
     border: 3px solid #1f1f1f;
-    z-index: 2;
   }
 
   #hero__text > span {

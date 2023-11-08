@@ -4,16 +4,16 @@ import { Icon } from "astro-icon";
 
 <header>
   <a href="#preface">
-    <Icon name="ph:question" />
+    <p>About</p>
   </a>
   <a href="#works">
-    <Icon name="ph:archive" />
+    <p>Works</p>
   </a>
   <a href="#skills">
-    <Icon name="ph:wrench" />
+    <p>Skills</p>
   </a>
   <a href="#connect">
-    <Icon name="ph:hand-waving" />
+    <p>Connect</p>
   </a>
 </header>
 
@@ -25,13 +25,11 @@ import { Icon } from "astro-icon";
     border: 3px solid #1f1f1f;
     position: fixed;
     margin-top: 2em;
-    padding: 0.25em;
     z-index: 2;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 0.25em;
-    opacity: 0.5;
+    opacity: 0.75;
     transition: opacity 0.125s ease-in-out;
   }
 
@@ -42,23 +40,18 @@ import { Icon } from "astro-icon";
   header a {
     border: none !important;
     border-radius: 0.75em;
-    display: block;
-    height: fit-content;
-    width: fit-content;
     padding: 0 !important;
     transition: background-color 0.125s ease-in-out;
   }
 
-  header a:hover {
-    background-color: #1f1f1f;
+  header a p {
+    font-size: var(--body);
+    margin: 0;
+    padding: 0.5em 1em;
   }
 
-  [astro-icon] {
-    min-height: 2em;
-    height: calc(var(--subtitle) - 0.5em);
-    padding: 0.5em;
-    aspect-ratio: 1 / 1;
-    display: block;
+  header a:hover {
+    background-color: #1f1f1f;
   }
 
   @media only screen and (min-width: 1024px) {
