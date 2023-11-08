@@ -2,7 +2,7 @@
 import projects from "../../data/works";
 import scrappedProjects from "../../data/scrapped";
 import { Icon } from "astro-icon";
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 ---
 
 <section id="works" class="container">
@@ -38,7 +38,7 @@ import { Image } from "@astrojs/image/components";
                 height={project.image.height}
                 width={project.image.width}
                 quality={50}
-                format={"webp"}
+                format="webp"
                 alt={project.name}
                 loading="lazy"
               />
@@ -248,7 +248,9 @@ import { Image } from "@astrojs/image/components";
     will-change: transform;
     transform: rotate(-10deg) translateY(10px) scale(0.5);
     transform-origin: top left;
-    transition: filter 0.3s ease-in-out 0.1s, transform 0.3s ease-in-out 0.1s;
+    transition:
+      filter 0.3s ease-in-out 0.1s,
+      transform 0.3s ease-in-out 0.1s;
   }
 
   .works__work:not(.works__work-large) .works__work-image {
