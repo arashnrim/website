@@ -33,3 +33,11 @@
   src: url("/fonts/GeneralSans-SemiboldItalic.woff") format("woff"),
     url("/fonts/GeneralSans-SemiboldItalic.woff2") format("woff2");
 }
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+}
