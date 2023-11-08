@@ -11,18 +11,17 @@ interface Project {
   description: string;
   largeTile?: boolean;
   year?: number;
-  image?: ImageMetadata;
+  image?: any;
   backgroundColor?: string;
 }
 
-import commute from "../public/images/works/commute.png";
-import desperateDefenders from "../public/images/works/desperate-defenders.png";
-import feducia from "../public/images/works/feducia.png";
-// import liste from "../public/images/works/liste.png";
-import tp from "../public/images/works/tp.png";
-import upgrade from "../public/images/works/upgrade.png";
-import beacon from "../public/images/works/beacon.png";
-import xtrabuddy from "../public/images/works/xtrabuddy.png";
+import commute from "../src/images/works/commute.png";
+import desperateDefenders from "../src/images/works/desperate-defenders.png";
+import feducia from "../src/images/works/feducia.png";
+import tp from "../src/images/works/tp.png";
+import upgrade from "../src/images/works/upgrade.png";
+import beacon from "../src/images/works/beacon.png";
+import xtrabuddy from "../src/images/works/xtrabuddy.png";
 
 const projects: Project[] = [
   {

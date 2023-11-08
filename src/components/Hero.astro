@@ -15,11 +15,10 @@ import { Image } from "astro:assets";
           src={image.src}
           alt={image.alt}
           height={360}
-          width={640}
           loading={index > 1 ? "lazy" : "eager"}
-          format="webp"
+          format={"webp"}
           style={{ "--animation-order": index }}
-          draggable={false}
+          draggable={"false"}
         />
       ))
     }
