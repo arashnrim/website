@@ -51,13 +51,15 @@ import { Icon } from "astro-icon";
 
   // Synchronize scrolling of the two divs
   divs.forEach((div) => {
-    div.addEventListener("scroll", (e) => {
-      divs.forEach((otherDiv) => {
-        if (otherDiv !== div) {
-          otherDiv.scrollTop = div.scrollTop;
-        }
+    if (div) {
+      div.addEventListener("scroll", (e) => {
+        divs.forEach((otherDiv) => {
+          if (otherDiv && otherDiv !== div) {
+            otherDiv.scrollTop = div.scrollTop;
+          }
+        });
       });
-    });
+    }
   });
 </script>
 

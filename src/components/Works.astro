@@ -50,13 +50,14 @@ import { Image } from "astro:assets";
                   {project.year}
                 </span>
               }
-              {project.tech.map((lang) => (
-                <Icon
-                  pack="simple-icons"
-                  name={lang.iconName}
-                  title={lang.friendlyName}
-                />
-              ))}
+              {project.tech &&
+                project.tech.map((lang) => (
+                  <Icon
+                    pack="simple-icons"
+                    name={lang.iconName}
+                    title={lang.friendlyName}
+                  />
+                ))}
             </div>
 
             <div class="works__work-spacer" />
@@ -147,11 +148,9 @@ import { Image } from "astro:assets";
   .works__work {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     grid-column: span 2;
-    background: #1f1f1f;
+    background: var(--projectColor);
     border-radius: var(--radius);
-    background-color: var(--projectColor);
     padding: 2em;
     box-sizing: border-box;
     user-select: none;
@@ -159,7 +158,6 @@ import { Image } from "astro:assets";
     position: relative;
     gap: 1em;
     overflow: hidden;
-    /* box-shadow: 0px 4px 0.5em rgba(0, 0, 0, 0.5); */
   }
 
   .works__work > *:not(.works__work-obstructor) {
@@ -174,10 +172,6 @@ import { Image } from "astro:assets";
     display: flex;
     align-items: center;
     gap: 0.75em;
-  }
-
-  .works__work-meta > * {
-    margin: 0;
   }
 
   .works__work:hover,
@@ -201,19 +195,17 @@ import { Image } from "astro:assets";
 
   .works__work-spacer {
     flex: 1;
-    margin: -1em 0;
   }
 
   .works__work-links {
-    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     gap: 1em;
   }
 
   .works__work-links > a {
     display: flex;
     border-radius: 1em;
-    justify-content: center;
     align-items: center;
     background-color: #0a0a0a88;
     backdrop-filter: blur(2em);
@@ -245,7 +237,6 @@ import { Image } from "astro:assets";
     filter: grayscale(100%) opacity(0.175);
     left: 50%;
     top: 0%;
-    will-change: transform;
     transform: rotate(-10deg) translateY(10px) scale(0.5);
     transform-origin: top left;
     transition:
@@ -253,7 +244,7 @@ import { Image } from "astro:assets";
       transform 0.3s ease-in-out 0.1s;
   }
 
-  .works__work:not(.works__work-large) .works__work-image {
+  .works__work:not(.works__work-large) > .works__work-image {
     left: 35%;
   }
 
