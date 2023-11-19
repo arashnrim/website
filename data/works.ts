@@ -22,6 +22,7 @@ import tp from "../src/images/works/tp.png";
 import upgrade from "../src/images/works/upgrade.png";
 import beacon from "../src/images/works/beacon.png";
 import xtrabuddy from "../src/images/works/xtrabuddy.png";
+import simplywords from "../src/images/works/simplywords.png";
 
 const projects: Project[] = [
   {
@@ -57,22 +58,6 @@ const projects: Project[] = [
     backgroundColor: "#005DFF",
   },
   {
-    name: "XtraBuddy",
-    websiteLink:
-      "https://play.google.com/store/apps/details?id=sg.edu.np.mad.xtrabuddy",
-    tech: [
-      { friendlyName: "Java", iconName: "java" },
-      { friendlyName: "Android SDK", iconName: "android" },
-      { friendlyName: "Firebase", iconName: "firebase" },
-    ],
-    description:
-      "An Android app that helps you find buddies to do activities with.",
-    largeTile: false,
-    year: 2022,
-    image: xtrabuddy,
-    backgroundColor: "#0080FF",
-  },
-  {
     name: "tp",
     githubLink: "https://github.com/arashnrim/tp",
     tech: [{ friendlyName: "Go", iconName: "go" }],
@@ -81,6 +66,22 @@ const projects: Project[] = [
     largeTile: false,
     year: 2022,
     image: tp,
+  },
+  {
+    name: "XtraBuddy",
+    // websiteLink:
+    //   "https://play.google.com/store/apps/details?id=sg.edu.np.mad.xtrabuddy",
+    tech: [
+      { friendlyName: "Java", iconName: "java" },
+      { friendlyName: "Android SDK", iconName: "android" },
+      { friendlyName: "Firebase", iconName: "firebase" },
+    ],
+    description:
+      "An Android app that helps you find buddies to do activities with.",
+    largeTile: true,
+    year: 2022,
+    image: xtrabuddy,
+    backgroundColor: "#0080FF",
   },
   {
     name: "Upgrade",
@@ -106,7 +107,7 @@ const projects: Project[] = [
       { friendlyName: "Firebase", iconName: "firebase" },
     ],
     description: "An open-sourced to-do list app made for everyone.",
-    largeTile: true,
+    largeTile: false,
     year: 2019,
     // image: liste,
     backgroundColor: "#FF2600",
@@ -139,6 +140,20 @@ const projects: Project[] = [
     largeTile: false,
     year: 2022,
     image: desperateDefenders,
+  },
+  {
+    name: "SimplyWords",
+    githubLink: "https://github.com/SimplyWordsTeam/SimplyWords",
+    tech: [
+      { friendlyName: "Java", iconName: "java" },
+      { friendlyName: "Android", iconName: "android" },
+    ],
+    description:
+      "An Android app for senior Singaporeans to understand content in digital services better.",
+    largeTile: true,
+    year: 2023,
+    image: simplywords,
+    backgroundColor: "#17322A",
   },
 ];
 
