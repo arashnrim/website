@@ -35,8 +35,7 @@ import { Image } from "astro:assets";
               <Image
                 class="works__work-image"
                 src={project.image}
-                height={project.image.height}
-                width={project.image.width}
+                height={640}
                 quality={50}
                 format="webp"
                 alt={project.name}
@@ -235,22 +234,22 @@ import { Image } from "astro:assets";
   .works__work-image {
     position: absolute;
     filter: grayscale(100%) opacity(0.175);
-    left: 50%;
+    left: 35%;
     top: 0%;
-    transform: rotate(-10deg) translateY(10px) scale(0.5);
+    transform: rotate(-10deg) translateY(10px);
     transform-origin: top left;
     transition:
       filter 0.3s ease-in-out 0.1s,
       transform 0.3s ease-in-out 0.1s;
   }
 
-  .works__work:not(.works__work-large) > .works__work-image {
-    left: 35%;
+  .works__work-large > .works__work-image {
+    left: 60%;
   }
 
   .works__work:hover .works__work-image {
-    transform: rotate(-10deg) translateY(0) scale(0.5);
-    filter: grayscale(100%) opacity(0.65);
+    transform: rotate(-10deg) translateY(0);
+    filter: grayscale(0%) opacity(0.65);
   }
 
   [astro-icon] {
@@ -307,6 +306,10 @@ import { Image } from "astro:assets";
     .works__work-links {
       flex-direction: column;
     }
+
+    .works__work-image {
+      display: none;
+    }
   }
 
   @media only screen and (max-width: 860px) {
@@ -318,6 +321,10 @@ import { Image } from "astro:assets";
     .works__work-large {
       grid-column: span 4;
       height: 100%;
+    }
+
+    .works__work-image {
+      display: none;
     }
   }
 
