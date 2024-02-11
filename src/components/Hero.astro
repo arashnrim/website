@@ -44,6 +44,15 @@ import { Image } from "astro:assets";
   let timeout: number;
   let activeElement: HTMLElement | null = null;
 
+  // Waits for the DOM to be fully loaded before adding the animation to the images
+  document.addEventListener("DOMContentLoaded", () => {
+    imageElements.forEach((imageElement) => {
+      (imageElement as HTMLImageElement).style.animation =
+        `0.75s ease calc(200ms + var(--animation-order) * 200ms) 1 present, 3s ease-in-out infinite loading`;
+      (imageElement as HTMLImageElement).style.animationFillMode = "backwards";
+    });
+  });
+
   imageElements.forEach((imageElement, index) => {
     imageElement.addEventListener(eventStart, () => {
       if (missionElement === null) return;
@@ -73,8 +82,8 @@ import { Image } from "astro:assets";
     });
   });
 
+  // Replaces the text in the second span element in #hero__gallery-text on non-hover devices
   if (!supportsHover) {
-    // Replaces the text in the second span element in #hero__gallery-text on non-hover devices
     (
       document.querySelector(
         "#hero__gallery-text > span:last-child"
@@ -112,7 +121,6 @@ import { Image } from "astro:assets";
     background:
       radial-gradient(#1f1f1f, 2.5px, transparent 3px) 0 0 / 50px 50px,
       linear-gradient(to bottom, #0a0a0a, transparent 500%);
-    z-index: 3;
   }
 
   #hero__gallery {
@@ -152,10 +160,6 @@ import { Image } from "astro:assets";
       filter 0.2s ease-in-out,
       opacity 0.2s ease-in-out,
       border-radius 0.2s ease-out;
-    animation:
-      0.75s ease calc(var(--animation-order) * 200ms) 1 present,
-      3s ease-in-out infinite loading;
-    animation-fill-mode: backwards;
   }
 
   #hero__text {

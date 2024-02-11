@@ -1,26 +1,28 @@
----
-import { Icon } from "astro-icon";
----
-
 <header>
-  <a href="#preface">
-    <p>About</p>
-  </a>
-  <a href="#works">
-    <p>Works</p>
-  </a>
-  <a href="#skills">
-    <p>Skills</p>
-  </a>
-  <a href="#connect">
-    <p>Connect</p>
-  </a>
+  <div>
+    <a href="#preface">
+      <p>About</p>
+    </a>
+    <a href="#works">
+      <p>Works</p>
+    </a>
+    <a href="#skills">
+      <p>Skills</p>
+    </a>
+    <a href="#connect">
+      <p>Connect</p>
+    </a>
+  </div>
+
+  <div>
+    <a href="https://blog.arash.codes"><p>Blog</p></a>
+  </div>
 </header>
 
 <style>
   header {
     background-color: #0a0a0a88;
-    backdrop-filter: blur(2em);
+    backdrop-filter: blur(0.5em);
     border-radius: 1em;
     border: 3px solid #1f1f1f;
     position: fixed;
@@ -29,8 +31,17 @@ import { Icon } from "astro-icon";
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    opacity: 0.75;
     transition: opacity 0.125s ease-in-out;
+  }
+
+  header div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  header div:not(:first-child) {
+    border-left: 3px solid #1f1f1f;
   }
 
   header:hover {

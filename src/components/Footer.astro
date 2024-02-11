@@ -3,66 +3,84 @@ import socials from "../../data/socials";
 ---
 
 <footer class="container">
-    <div class="footer__code">
-        <code
-            ><code style="display: inline; color: cyan">~/website-v4</code> on
-            <code style="display: inline; color: purple">main</code></code
-        >
-        <code
-            ><code style="display: inline; color: lightgreen">%</code> cat thank-you.txt</code
-        >
-        <code>Thanks for stopping by; keep being awesome!</code>
-        <code
-            >You can find me through {
-                socials.map((social, index) => (
-                    <>
-                        <a
-                            style="display: inline-block"
-                            href={social.url}
-                            target="_blank"
-                            rel="noreferrer noopener"
-                        >
-                            {social.name === "Email" ? "email" : social.name}
-                        </a>
-                        {index === socials.length - 1
-                            ? "."
-                            : index === socials.length - 2
-                            ? ", and "
-                            : ", "}
-                    </>
-                ))
-            }</code
-        >
+  <div id="footer__left">
+    <code
+      ><code style="display: inline; color: cyan">~/website-v4</code> on
+      <code style="display: inline; color: fuchsia">main</code></code
+    >
+    <code
+      ><code style="display: inline; color: lightgreen">%</code> cat thank-you.txt</code
+    >
+    <code>Thanks for stopping by; keep being awesome!</code>
+    <code
+      >You can find me through {
+        socials.map((social, index) => (
+          <>
+            <a
+              style="display: inline-block"
+              href={social.url}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              {social.name === "Email" ? "email" : social.name}
+            </a>
+            {index === socials.length - 1
+              ? "."
+              : index === socials.length - 2
+                ? ", and "
+                : ", "}
+          </>
+        ))
+      }</code
+    >
 
-        <code
-            >Made with &lt;3 by <a href="/#connect">@arashnrim</a>. Wanna <a
-                href="https://github.com/arashnrim/website"
-                target="_blank"
-                rel="noopener noreferrer">have a look at the code</a
-            >?</code
-        >
-    </div>
+    <code
+      >Made with &lt;3 by <a href="/#connect">@arashnrim</a>. Wanna <a
+        href="https://github.com/arashnrim/website"
+        target="_blank"
+        rel="noopener noreferrer">have a look at the code</a
+      >?</code
+    >
+  </div>
+  <div id="footer__right">
+    <a href="https://blog.arash.codes">Blog</a>
+    <!-- <a href="">CV</a>
+    <a href="">Sandboxed Software</a> -->
+  </div>
 </footer>
 
 <style>
+  footer {
+    border-top: 2px solid #1f1f1f;
+    margin-top: calc(var(--section-padding) / 2);
+    display: flex;
+  }
+
+  #footer__left {
+    display: flex;
+    flex-direction: column;
+    font-size: calc(var(--body) - 0.25em);
+    flex: 1;
+  }
+
+  #footer__left * {
+    font-family: "JetBrains Mono", "Courier New", Courier, monospace !important;
+  }
+
+  #footer__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #footer__right a {
+    width: fit-content;
+    font-size: calc(var(--body) - 0.25em);
+  }
+
+  @media only screen and (min-width: 1024px) {
     footer {
-        border-top: 2px solid #1f1f1f;
-        margin-top: calc(var(--section-padding) / 2);
+      margin-top: calc(var(--section-padding) / 3);
     }
-
-    .footer__code {
-        display: flex;
-        flex-direction: column;
-        font-size: calc(var(--body) - 0.25em);
-    }
-
-    .footer__code * {
-        font-family: "JetBrains Mono", "Courier New", Courier, monospace !important;
-    }
-
-    @media only screen and (min-width: 1024px) {
-        footer {
-            margin-top: calc(var(--section-padding) / 3);
-        }
-    }
+  }
 </style>

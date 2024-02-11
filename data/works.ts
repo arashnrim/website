@@ -26,6 +26,36 @@ import simplywords from "../src/images/works/simplywords.png";
 
 const projects: Project[] = [
   {
+    name: "SimplyWords",
+    githubLink: "https://github.com/SimplyWordsTeam/SimplyWords",
+    tech: [
+      { friendlyName: "Java", iconName: "java" },
+      { friendlyName: "Android", iconName: "android" },
+    ],
+    description:
+      "An Android app for senior Singaporeans to understand content in digital services better.",
+    largeTile: true,
+    year: 2023,
+    image: simplywords,
+    backgroundColor: "#17322A",
+  },
+  {
+    name: "XtraBuddy",
+    // websiteLink:
+    //   "https://play.google.com/store/apps/details?id=sg.edu.np.mad.xtrabuddy",
+    tech: [
+      { friendlyName: "Java", iconName: "java" },
+      { friendlyName: "Android SDK", iconName: "android" },
+      { friendlyName: "Firebase", iconName: "firebase" },
+    ],
+    description:
+      "An Android app that helps you find buddies to do activities with.",
+    largeTile: true,
+    year: 2022,
+    image: xtrabuddy,
+    backgroundColor: "#0080FF",
+  },
+  {
     name: "Beacon",
     githubLink: "https://github.com/pikanotjx/sutdwasdoftime",
     websiteLink: "https://devpost.com/software/beacon-42m7ih",
@@ -66,22 +96,6 @@ const projects: Project[] = [
     largeTile: false,
     year: 2022,
     image: tp,
-  },
-  {
-    name: "XtraBuddy",
-    // websiteLink:
-    //   "https://play.google.com/store/apps/details?id=sg.edu.np.mad.xtrabuddy",
-    tech: [
-      { friendlyName: "Java", iconName: "java" },
-      { friendlyName: "Android SDK", iconName: "android" },
-      { friendlyName: "Firebase", iconName: "firebase" },
-    ],
-    description:
-      "An Android app that helps you find buddies to do activities with.",
-    largeTile: true,
-    year: 2022,
-    image: xtrabuddy,
-    backgroundColor: "#0080FF",
   },
   {
     name: "Upgrade",
@@ -140,20 +154,6 @@ const projects: Project[] = [
     largeTile: false,
     year: 2022,
     image: desperateDefenders,
-  },
-  {
-    name: "SimplyWords",
-    githubLink: "https://github.com/SimplyWordsTeam/SimplyWords",
-    tech: [
-      { friendlyName: "Java", iconName: "java" },
-      { friendlyName: "Android", iconName: "android" },
-    ],
-    description:
-      "An Android app for senior Singaporeans to understand content in digital services better.",
-    largeTile: true,
-    year: 2023,
-    image: simplywords,
-    backgroundColor: "#17322A",
   },
 ];
 
