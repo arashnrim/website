@@ -45,13 +45,27 @@ import { Image } from "astro:assets";
   let activeElement: HTMLElement | null = null;
 
   // Waits for the DOM to be fully loaded before adding the animation to the images
-  document.addEventListener("DOMContentLoaded", () => {
-    imageElements.forEach((imageElement) => {
-      (imageElement as HTMLImageElement).style.animation =
-        `0.75s ease calc(200ms + var(--animation-order) * 200ms) 1 present, 3s ease-in-out infinite loading`;
-      (imageElement as HTMLImageElement).style.animationFillMode = "backwards";
-    });
-  });
+  document.onreadystatechange = () => {
+    if (document.readyState === "complete") {
+      imageElements.forEach((imageElement) => {
+        (imageElement as HTMLImageElement).style.animation =
+          `0.75s ease calc(200ms + var(--animation-order) * 200ms) 1 present, 3s ease-in-out infinite loading`;
+        (imageElement as HTMLImageElement).style.animationFillMode =
+          "backwards";
+      });
+    }
+  };
+
+  // Replaces the text in the second span element in #hero__gallery-text on non-hover devices
+  var detailsDuration = 3000;
+  if (!supportsHover) {
+    (
+      document.querySelector(
+        "#hero__gallery-text > span:last-child"
+      ) as HTMLElement
+    ).textContent = "Tap on them, too!";
+    detailsDuration = 4000;
+  }
 
   imageElements.forEach((imageElement, index) => {
     imageElement.addEventListener(eventStart, () => {
@@ -65,7 +79,7 @@ import { Image } from "astro:assets";
             "grayScale(100%) brightness(50%)";
           (imageElement as HTMLElement).style.borderRadius = "0";
         });
-      }, 2500);
+      }, detailsDuration);
 
       if (activeElement) {
         (activeElement as HTMLElement).style.filter =
@@ -81,15 +95,6 @@ import { Image } from "astro:assets";
       activeElement = imageElement as HTMLElement;
     });
   });
-
-  // Replaces the text in the second span element in #hero__gallery-text on non-hover devices
-  if (!supportsHover) {
-    (
-      document.querySelector(
-        "#hero__gallery-text > span:last-child"
-      ) as HTMLElement
-    ).textContent = "Tap on them, too!";
-  }
 
   const greetings = ["Hey!", "Hello!", "Hi there,", "Hiya,", "Selamat datang!"];
   setInterval(() => {
@@ -135,6 +140,7 @@ import { Image } from "astro:assets";
     position: absolute;
     margin-top: 0.5em;
     margin-left: 0.5em;
+    z-index: 1;
   }
 
   #hero__gallery-text > span {
