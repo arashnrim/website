@@ -12,27 +12,6 @@ import socials from "../../data/socials";
       ><code style="display: inline; color: lightgreen">%</code> cat thank-you.txt</code
     >
     <code>Thanks for stopping by; keep being awesome!</code>
-    <code
-      >You can find me through {
-        socials.map((social, index) => (
-          <>
-            <a
-              style="display: inline-block"
-              href={social.url}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              {social.name === "Email" ? "email" : social.name}
-            </a>
-            {index === socials.length - 1
-              ? "."
-              : index === socials.length - 2
-                ? ", and "
-                : ", "}
-          </>
-        ))
-      }</code
-    >
 
     <code
       >Made with &lt;3 by <a href="/#connect">@arashnrim</a>. Wanna <a
@@ -43,8 +22,9 @@ import socials from "../../data/socials";
     >
   </div>
   <div id="footer__right">
+    <!-- 
     <a href="https://blog.arash.codes">Blog</a>
-    <!-- <a href="">CV</a>
+    <a href="">CV</a>
     <a href="">Sandboxed Software</a> -->
   </div>
 </footer>
