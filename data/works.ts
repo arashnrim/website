@@ -15,28 +15,45 @@ interface Project {
   backgroundColor?: string;
 }
 
+import fivePointZeroGPAStudent from "../src/images/works/5-0-gpa-student.jpg";
 import commute from "../src/images/works/commute.png";
-import desperateDefenders from "../src/images/works/desperate-defenders.png";
 import feducia from "../src/images/works/feducia.png";
 import tp from "../src/images/works/tp.png";
 import upgrade from "../src/images/works/upgrade.png";
 import beacon from "../src/images/works/beacon.png";
-import xtrabuddy from "../src/images/works/xtrabuddy.png";
-import simplywords from "../src/images/works/simplywords.png";
+import xtraBuddy from "../src/images/works/xtrabuddy.png";
+import simplyWords from "../src/images/works/simplywords.png";
 
 const projects: Project[] = [
+  {
+    name: "5.0 GPA Student",
+    githubLink: "https://github.com/arashnrim/5.0-gpa-student",
+    tech: [
+      { friendlyName: "TypeScript", iconName: "typescript" },
+      { friendlyName: "Discord", iconName: "discord" },
+      { friendlyName: "OpenAI GPT", iconName: "openai" },
+      { friendlyName: "Google Cloud Platform", iconName: "googlecloud" },
+    ],
+    description:
+      "A friendly bot that lets you learn with a study buddy about anything.",
+    largeTile: true,
+    year: 2023,
+    image: fivePointZeroGPAStudent,
+    backgroundColor: "#CCCCCC",
+  },
   {
     name: "SimplyWords",
     githubLink: "https://github.com/SimplyWordsTeam/SimplyWords",
     tech: [
       { friendlyName: "Java", iconName: "java" },
       { friendlyName: "Android", iconName: "android" },
+      { friendlyName: "OpenAI GPT", iconName: "openai" },
     ],
     description:
       "An Android app for senior Singaporeans to understand content in digital services better.",
     largeTile: true,
     year: 2023,
-    image: simplywords,
+    image: simplyWords,
     backgroundColor: "#17322A",
   },
   {
@@ -52,7 +69,7 @@ const projects: Project[] = [
       "An Android app that helps you find buddies to do activities with.",
     largeTile: true,
     year: 2022,
-    image: xtrabuddy,
+    image: xtraBuddy,
     backgroundColor: "#0080FF",
   },
   {
@@ -82,7 +99,7 @@ const projects: Project[] = [
     ],
     description:
       "A Telegram bot that helps you find the best public route to your destination.",
-    largeTile: true,
+    largeTile: false,
     year: 2022,
     image: commute,
     backgroundColor: "#005DFF",
@@ -144,16 +161,6 @@ const projects: Project[] = [
     year: 2022,
     image: feducia,
     backgroundColor: "#1D63DD",
-  },
-  {
-    name: "Desperate Defenders",
-    githubLink: "https://github.com/arashnrim/desperate-defenders",
-    tech: [{ friendlyName: "Python", iconName: "python" }],
-    description:
-      "A small CLI tower defence game made with Python for a school assignment.",
-    largeTile: false,
-    year: 2022,
-    image: desperateDefenders,
   },
 ];
 

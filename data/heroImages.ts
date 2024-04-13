@@ -1,16 +1,21 @@
 import epoch from "../src/images/epoch.jpg";
+import codeDay from "../src/images/codeday-2023.jpg";
 import wth from "../src/images/wth.jpg";
 import nycLeadersCourse from "../src/images/nyc-leaders-course.jpg";
 import awsSkillsFuture from "../src/images/aws-skillsfuture.jpg";
 import sis from "../src/images/sis.jpg";
 import github from "../src/images/github.jpg";
-import homecoming from "../src/images/homecoming.jpg";
 
 const images = [
   {
     src: epoch,
     alt: "A person standing in between two other people looking to the side.",
     text: 'That\'s me coordinating workshops at <a href="https://epoch.hackclub.com" target="_blank" rel="noopener noreferrer">Epoch</a>, Hack Club\'s 42-hour hackathon in New Delhi, India.',
+  },
+  {
+    src: codeDay,
+    alt: 'A wide shot of 50 people sitting on a stage with a screen behind them with the words "CodeDay Singapore" on it. The people are spread across three rows with the front row sitting on the stage floor.',
+    text: 'That\'s everybody at <a href="https://codeday.org/singapore" target="_blank" rel="noopener noreferrer">CodeDay Singapore</a> in 2023. I\'m in the front row, fifth from the left.',
   },
   {
     src: wth,
@@ -36,11 +41,6 @@ const images = [
     src: github,
     alt: "A group of six people standing in front of a logo of Microsoft with balloons spelling out GitHub below it.",
     text: "That's a group of friends and me at the 2022 GitHub Universe Singapore watch party.",
-  },
-  {
-    src: homecoming,
-    alt: "A group of five people sitting and squatting on a field.",
-    text: "That's a group of friends and me at my school's homecoming in 2022.",
   },
 ];
 
