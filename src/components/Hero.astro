@@ -48,6 +48,7 @@ import { Image } from "astro:assets";
   document.onreadystatechange = () => {
     if (document.readyState === "complete") {
       imageElements.forEach((imageElement) => {
+        (imageElement as HTMLImageElement).style.opacity = "1";
         (imageElement as HTMLImageElement).style.animation =
           `0.75s ease calc(200ms + var(--animation-order) * 200ms) 1 present, 3s ease-in-out infinite loading`;
         (imageElement as HTMLImageElement).style.animationFillMode =
@@ -166,6 +167,7 @@ import { Image } from "astro:assets";
       filter 0.2s ease-in-out,
       opacity 0.2s ease-in-out,
       border-radius 0.2s ease-out;
+    opacity: 0;
   }
 
   #hero__text {
