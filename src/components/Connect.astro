@@ -47,7 +47,7 @@ import socials from "../../data/socials";
     background-color: #1f1f1f;
     border-radius: 1em;
     overflow: hidden;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.25s ease-out;
   }
 
   .connect__grid__item:hover {
@@ -73,7 +73,9 @@ import socials from "../../data/socials";
     width: 50%;
     position: absolute;
     opacity: 0.05;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition:
+      opacity 0.3s ease-out,
+      transform 0.3s ease-out;
     transform: rotate(10deg) translateY(10px);
     left: -10%;
     top: -25%;

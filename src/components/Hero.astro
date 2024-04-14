@@ -50,7 +50,7 @@ import { Image } from "astro:assets";
       imageElements.forEach((imageElement) => {
         (imageElement as HTMLImageElement).style.opacity = "1";
         (imageElement as HTMLImageElement).style.animation =
-          `0.75s ease calc(200ms + var(--animation-order) * 200ms) 1 present, 3s ease-in-out infinite loading`;
+          `1.25s ease-out calc(var(--animation-order) * 200ms) 1 present`;
         (imageElement as HTMLImageElement).style.animationFillMode =
           "backwards";
       });
@@ -78,20 +78,17 @@ import { Image } from "astro:assets";
         imageElements.forEach((imageElement) => {
           (imageElement as HTMLElement).style.filter =
             "grayScale(100%) brightness(50%)";
-          (imageElement as HTMLElement).style.borderRadius = "0";
         });
       }, detailsDuration);
 
       if (activeElement) {
         (activeElement as HTMLElement).style.filter =
           "grayScale(100%) brightness(50%)";
-        (activeElement as HTMLElement).style.borderRadius = "0";
       }
 
       missionElement.innerHTML = images[index].text;
       (imageElement as HTMLElement).style.filter =
         "grayScale(0%) brightness(100%)";
-      (imageElement as HTMLElement).style.borderRadius = "var(--radius)";
 
       activeElement = imageElement as HTMLElement;
     });
@@ -112,7 +109,7 @@ import { Image } from "astro:assets";
   @keyframes present {
     0% {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(25px);
     }
     100% {
       opacity: 1;
@@ -148,24 +145,12 @@ import { Image } from "astro:assets";
     display: block;
   }
 
-  @keyframes loading {
-    0% {
-      background-color: #3d3d3d;
-    }
-    50% {
-      background-color: #1f1f1f;
-    }
-    100% {
-      background-color: #3d3d3d;
-    }
-  }
-
   #hero__gallery > img {
     height: 360px;
     filter: grayscale(100%) brightness(50%);
     transition:
-      filter 0.2s ease-in-out,
-      opacity 0.2s ease-in-out,
+      filter 0.2s ease-out,
+      opacity 0.2s ease-out,
       border-radius 0.2s ease-out;
     opacity: 0;
   }
