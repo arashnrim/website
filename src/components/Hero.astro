@@ -30,6 +30,8 @@ import { Image } from "astro:assets";
       I'm learning to create designed, intuitive, and practical products using
       technology.
     </h2>
+
+    <a id="hero__cta" href="#connect">👋 Say hi</a>
   </div>
 </section>
 
@@ -180,6 +182,22 @@ import { Image } from "astro:assets";
     font-size: var(--title);
     font-weight: 600;
     margin: 0;
+  }
+
+  #hero__cta {
+    display: block;
+    width: fit-content;
+    margin-top: 1em !important;
+    padding: 0.25em 0.75em;
+    font-size: var(--subtitle);
+    background-color: transparent;
+    border: 3px solid #1f1f1f;
+    border-radius: 0.3em;
+    transition: background-color 0.2s ease-out;
+  }
+
+  #hero__cta:hover {
+    background-color: #0f0f0f;
   }
 
   @media only screen and (min-width: 960px) {
