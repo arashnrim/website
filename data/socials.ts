@@ -2,8 +2,8 @@ const socials = [
   {
     name: "Email",
     description: "A general, catch-all address for anything",
-    url: "mailto:hello@arashnrim.me",
-    linkText: "hello [@] arashnrim [.] me",
+    url: "mailto:hey@arash.codes",
+    linkText: "hey [at] arash [dot] codes",
     iconName: "ph:envelope-simple",
   },
   {
