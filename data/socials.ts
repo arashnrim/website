@@ -1,4 +1,21 @@
-const socials = [
+interface Social {
+  name: string;
+  description: string;
+  url?: string;
+  linkText?: string;
+  id?: string;
+  iconName: string;
+}
+
+const socials: Social[] = [
+  {
+    name: "Blog",
+    description: "Sharing experiences, thoughts, and stories about tech",
+    url: "https://blog.arash.codes",
+    linkText: "function()",
+    id: "socials__blog",
+    iconName: "ph:pen-nib",
+  },
   {
     name: "Email",
     description: "A general, catch-all address for anything",

@@ -16,7 +16,7 @@ import socials from "../../data/socials";
   <div id="connect__grid">
     {
       socials.map((social) => (
-        <div class="connect__grid__item">
+        <div class="connect__grid__item" id={social.id && social.id}>
           <Icon name={social.iconName} />
           <h2>{social.name}</h2>
           <span class="subtitle">
@@ -85,6 +85,12 @@ import socials from "../../data/socials";
   .connect__grid__item:hover [astro-icon] {
     opacity: 0.1;
     transform: rotate(10deg) translateY(0);
+  }
+
+  #socials__blog .subtitle > a {
+    font-family: "JetBrains Mono", "Courier New", Courier, monospace;
+    font-weight: 800;
+    font-style: italic;
   }
 
   @media only screen and (min-width: 768px) {

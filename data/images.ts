@@ -15,7 +15,7 @@ const images = [
   {
     src: codeDay,
     alt: 'A wide shot of 50 people sitting on a stage with a screen behind them with the words "CodeDay Singapore" on it. The people are spread across three rows with the front row sitting on the stage floor.',
-    text: 'That\'s everybody at <a href="https://codeday.org/singapore" target="_blank" rel="noopener noreferrer">CodeDay Singapore</a> in 2023. I\'m in the front row, fifth from the left.',
+    text: 'That\'s everybody at <a href="https://codeday.org/singapore" target="_blank" rel="noopener noreferrer">CodeDay Singapore</a> in 2023. I\'m in the front row, fifth from the right.',
   },
   {
     src: wth,
