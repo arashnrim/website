@@ -31,6 +31,23 @@ import socials from "../../data/socials";
   </div>
 </section>
 
+<script>
+  import socials from "../../data/socials";
+
+  const emailSubtitle = document.querySelector("#socials__email .subtitle > a");
+  emailSubtitle?.addEventListener("click", () => {
+    const email = window.atob("YXJhc2hAYXJhc2guY29kZXM=");
+    navigator.clipboard.writeText(email).then(() => {
+      emailSubtitle.textContent = "Copied to clipboard!";
+      setTimeout(() => {
+        emailSubtitle.textContent = socials.find(
+          (s) => s.id === "socials__email"
+        )!.linkText!;
+      }, 2000);
+    });
+  });
+</script>
+
 <style>
   #connect__grid {
     display: grid;
@@ -91,6 +108,10 @@ import socials from "../../data/socials";
     font-family: "JetBrains Mono", "Courier New", Courier, monospace;
     font-weight: 800;
     font-style: italic;
+  }
+
+  #socials__email .subtitle > a {
+    cursor: pointer;
   }
 
   @media only screen and (min-width: 768px) {

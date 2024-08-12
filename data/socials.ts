@@ -19,8 +19,8 @@ const socials: Social[] = [
   {
     name: "Email",
     description: "A general, catch-all address for anything",
-    url: "mailto:hey@arash.codes",
-    linkText: "hey [at] arash [dot] codes",
+    linkText: "Click to copy",
+    id: "socials__email",
     iconName: "ph:envelope-simple",
   },
   {
