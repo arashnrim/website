@@ -1,46 +1,19 @@
-# Astro Starter Kit: Minimal
+# website
 
-```
-npm create astro@latest -- --template minimal
-```
+Welcome to [my website](https://arash.codes)'s repository! This is the fourth iteration of my personal website, and it's built with [Astro](https://astro.build). This version is a complete rewrite of the previous version, which was built with [Next.js](https://nextjs.org).
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/minimal)
+## Motivations
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Having a website of my own meant that I had a little space on the internet that I could call my own. I would be able to share more with prospective connections about myself all while learning by doing. Instead of relying on learning platforms to be walked through overly-simplified projects, I wanted to engage myself with a practical product — in this case, being able to share more about myself.
 
-## 🚀 Project Structure
+A particularly interesting decision for this iteration was to manually write the stylesheets in plain CSS. This proved to be a great learning experience, picking up more about vanilla CSS and how to structure it in a maintainable way. I previously used Tailwind CSS for my website, but I wanted to try something different this time around.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Contributing
 
-```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+This project is **_not_ accepting major contributions** as it is personal. However, if there is an issue like a spelling or grammatical error, a visual bug, or other kinds of weird things happening, please feel free to create an issue.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+If you would like to leave comments about the source code, like possible design and code improvements, or other kinds of feedback, please feel free to create an issue too if you wish!
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## License
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This repository is made open-source with the [MIT License](https://github.com/arashnrim/website/blob/main/LICENSE.md), meaning that you are allowed to modify and distribute the source code as well as use it for private and commercial use provided that the licence and copyright notices are retained. For more information, visit the link above to learn what is permitted by the licence.
