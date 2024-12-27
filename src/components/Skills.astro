@@ -1,6 +1,8 @@
 ---
 import skills from "../../data/skills";
 import { Icon } from "astro-icon";
+
+const sortedSkills = skills.sort((a, b) => b.yearLearnt - a.yearLearnt);
 ---
 
 <section id="skills" class="container">
@@ -19,14 +21,14 @@ import { Icon } from "astro-icon";
       </div>
       <div id="skills__figure-main">
         <div id="skills__figure-code">
-          <pre><code>{`const skills = ${JSON.stringify(skills, undefined, 2)}`}</code></pre>
+          <pre><code>{`const skills = ${JSON.stringify(sortedSkills, undefined, 2)}`}</code></pre>
         </div>
         <div id="skills__figure-preview">
           {
-            skills.map((skill) => (
+            sortedSkills.map((skill) => (
               <div class="skills__figure-skill">
                 <div class="skills__figure-skill__header">
-                  <Icon pack="simple-icons" name={skill.iconName} />
+                  <Icon name={skill.iconName} />
                   <span>{skill.friendlyName}</span>
                 </div>
                 <div class="skills__figure-skill__badges">
