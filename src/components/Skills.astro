@@ -150,13 +150,17 @@ const sortedSkills = skills.sort((a, b) => b.yearLearnt - a.yearLearnt);
     flex-direction: column;
     gap: 1em;
     border-radius: 1em;
+    border: 3px solid #1f1f1f;
     background-color: #1f1f1f;
     padding: 1.25em;
-    transition: transform 0.25s ease-out;
+    transition:
+      transform 0.25s ease-out,
+      border 0.25s ease-out;
   }
 
   .skills__figure-skill:hover {
     transform: translateY(-5px);
+    border: 3px solid #2a2a2a;
   }
 
   .skills__figure-skill__header {
