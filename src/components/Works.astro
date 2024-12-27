@@ -1,7 +1,7 @@
 ---
 import projects from "../../data/works";
 import scrappedProjects from "../../data/scrapped";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 ---
 
@@ -50,11 +50,7 @@ import { Image } from "astro:assets";
               }
               {project.tech &&
                 project.tech.map((lang) => (
-                  <Icon
-                    pack="simple-icons"
-                    name={lang.iconName}
-                    title={lang.friendlyName}
-                  />
+                  <Icon name={lang.iconName} title={lang.friendlyName} />
                 ))}
             </div>
 
@@ -72,7 +68,7 @@ import { Image } from "astro:assets";
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Icon pack="simple-icons" name="github" />
+                  <Icon name="simple-icons:github" />
                   GitHub
                 </a>
               )}
@@ -82,7 +78,7 @@ import { Image } from "astro:assets";
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Icon pack="ph" name="globe" />
+                  <Icon name="ph:globe" />
                   Website
                 </a>
               )}
@@ -251,7 +247,7 @@ import { Image } from "astro:assets";
     filter: grayscale(0%) opacity(0.65);
   }
 
-  [astro-icon] {
+  [data-icon] {
     height: 1.5em;
   }
 

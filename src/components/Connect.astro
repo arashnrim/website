@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import socials from "../../data/socials";
 ---
 
@@ -90,7 +90,8 @@ import socials from "../../data/socials";
     font-weight: 700;
   }
 
-  [astro-icon] {
+  [data-icon] {
+    font-size: 12em;
     width: 50%;
     position: absolute;
     opacity: 0.05;
@@ -103,7 +104,7 @@ import socials from "../../data/socials";
     pointer-events: none;
   }
 
-  .connect__grid__item:hover [astro-icon] {
+  .connect__grid__item:hover [data-icon] {
     opacity: 0.1;
     transform: rotate(10deg) translateY(0);
   }

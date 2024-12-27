@@ -1,6 +1,6 @@
 ---
 import skills from "../../data/skills";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 const sortedSkills = skills.sort((a, b) => b.yearLearnt - a.yearLearnt);
 ---
@@ -174,8 +174,9 @@ const sortedSkills = skills.sort((a, b) => b.yearLearnt - a.yearLearnt);
     font-weight: 700;
   }
 
-  [astro-icon] {
-    height: 1.5em;
+  [data-icon] {
+    font-size: 1.5em;
+    color: white;
   }
 
   .skills__figure-skill__badges {

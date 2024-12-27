@@ -29,10 +29,13 @@ const projects: Project[] = [
     name: "5.0 GPA Student",
     githubLink: "https://github.com/arashnrim/5.0-gpa-student",
     tech: [
-      { friendlyName: "TypeScript", iconName: "typescript" },
-      { friendlyName: "Discord", iconName: "discord" },
-      { friendlyName: "OpenAI GPT", iconName: "openai" },
-      { friendlyName: "Google Cloud Platform", iconName: "googlecloud" },
+      { friendlyName: "TypeScript", iconName: "simple-icons:typescript" },
+      { friendlyName: "Discord", iconName: "simple-icons:discord" },
+      { friendlyName: "OpenAI GPT", iconName: "simple-icons:openai" },
+      {
+        friendlyName: "Google Cloud Platform",
+        iconName: "simple-icons:googlecloud",
+      },
     ],
     description:
       "A friendly bot that lets you learn with a study buddy about anything.",
@@ -45,9 +48,9 @@ const projects: Project[] = [
     name: "SimplyWords",
     githubLink: "https://github.com/SimplyWordsTeam/SimplyWords",
     tech: [
-      { friendlyName: "Java", iconName: "java" },
-      { friendlyName: "Android", iconName: "android" },
-      { friendlyName: "OpenAI GPT", iconName: "openai" },
+      { friendlyName: "Java", iconName: "devicon-plain:java" },
+      { friendlyName: "Android", iconName: "simple-icons:android" },
+      { friendlyName: "OpenAI GPT", iconName: "simple-icons:openai" },
     ],
     description:
       "An Android app for senior Singaporeans to understand content in digital services better.",
@@ -61,9 +64,9 @@ const projects: Project[] = [
     // websiteLink:
     //   "https://play.google.com/store/apps/details?id=sg.edu.np.mad.xtrabuddy",
     tech: [
-      { friendlyName: "Java", iconName: "java" },
-      { friendlyName: "Android SDK", iconName: "android" },
-      { friendlyName: "Firebase", iconName: "firebase" },
+      { friendlyName: "Java", iconName: "devicon-plain:java" },
+      { friendlyName: "Android SDK", iconName: "simple-icons:android" },
+      { friendlyName: "Firebase", iconName: "simple-icons:firebase" },
     ],
     description:
       "An Android app that helps you find buddies to do activities with.",
@@ -77,10 +80,13 @@ const projects: Project[] = [
     githubLink: "https://github.com/pikanotjx/sutdwasdoftime",
     websiteLink: "https://devpost.com/software/beacon-42m7ih",
     tech: [
-      { friendlyName: "Python", iconName: "python" },
-      { friendlyName: "Google Cloud Platform", iconName: "googlecloud" },
-      { friendlyName: "ESP32", iconName: "espressif" },
-      { friendlyName: "Arduino", iconName: "arduino" },
+      { friendlyName: "Python", iconName: "simple-icons:python" },
+      {
+        friendlyName: "Google Cloud Platform",
+        iconName: "simple-icons:googlecloud",
+      },
+      { friendlyName: "ESP32", iconName: "simple-icons:espressif" },
+      { friendlyName: "Arduino", iconName: "simple-icons:arduino" },
     ],
     description:
       "An automated IOT system for people with disabilities to adjust impediments in their environment to their needs.",
@@ -93,9 +99,9 @@ const projects: Project[] = [
     name: "Commute",
     githubLink: "https://github.com/arashnrim/commute",
     tech: [
-      { friendlyName: "TypeScript", iconName: "typescript" },
-      { friendlyName: "Telegraf", iconName: "telegram" },
-      { friendlyName: "Railway", iconName: "railway" },
+      { friendlyName: "TypeScript", iconName: "simple-icons:typescript" },
+      { friendlyName: "Telegraf", iconName: "simple-icons:telegram" },
+      { friendlyName: "Railway", iconName: "simple-icons:railway" },
     ],
     description:
       "A Telegram bot that helps you find the best public route to your destination.",
@@ -107,7 +113,7 @@ const projects: Project[] = [
   {
     name: "tp",
     githubLink: "https://github.com/arashnrim/tp",
-    tech: [{ friendlyName: "Go", iconName: "go" }],
+    tech: [{ friendlyName: "Go", iconName: "simple-icons:go" }],
     description:
       "A CLI tool that lets you teleport anywhere and run commands in an instant.",
     largeTile: false,
@@ -118,8 +124,8 @@ const projects: Project[] = [
     name: "Upgrade",
     githubLink: "https://github.com/arashnrim/upgrade",
     tech: [
-      { friendlyName: "Swift", iconName: "swift" },
-      { friendlyName: "Firebase", iconName: "firebase" },
+      { friendlyName: "Swift", iconName: "simple-icons:swift" },
+      { friendlyName: "Firebase", iconName: "simple-icons:firebase" },
     ],
     description:
       "An app for students to understand their academic achievements better.",
@@ -134,8 +140,8 @@ const projects: Project[] = [
     websiteLink:
       "https://apps.apple.com/us/app/list%C3%A9-productive-to-do/id1486116734",
     tech: [
-      { friendlyName: "Swift", iconName: "swift" },
-      { friendlyName: "Firebase", iconName: "firebase" },
+      { friendlyName: "Swift", iconName: "simple-icons:swift" },
+      { friendlyName: "Firebase", iconName: "simple-icons:firebase" },
     ],
     description: "An open-sourced to-do list app made for everyone.",
     largeTile: false,
@@ -148,12 +154,12 @@ const projects: Project[] = [
     githubLink: "https://github.com/arashnrim/feducia",
     websiteLink: "https://devpost.com/software/feducia",
     tech: [
-      { friendlyName: "Next.js", iconName: "nextdotjs" },
-      { friendlyName: "Tailwind CSS", iconName: "tailwindcss" },
-      { friendlyName: "Express", iconName: "express" },
-      { friendlyName: "Solidity", iconName: "solidity" },
-      { friendlyName: "Vercel", iconName: "vercel" },
-      { friendlyName: "Railway", iconName: "railway" },
+      { friendlyName: "Next.js", iconName: "simple-icons:nextdotjs" },
+      { friendlyName: "Tailwind CSS", iconName: "simple-icons:tailwindcss" },
+      { friendlyName: "Express", iconName: "simple-icons:express" },
+      { friendlyName: "Solidity", iconName: "simple-icons:solidity" },
+      { friendlyName: "Vercel", iconName: "simple-icons:vercel" },
+      { friendlyName: "Railway", iconName: "simple-icons:railway" },
     ],
     description:
       "A concept of what decentralised banking can look like with crypto.",

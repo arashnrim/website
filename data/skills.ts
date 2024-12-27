@@ -95,7 +95,7 @@ const skills: Skill[] = [
   },
   {
     friendlyName: "Java",
-    iconName: "simple-icons:java",
+    iconName: "devicon-plain:java",
     yearLearnt: 2023,
     category: SkillCategory.Mobile,
   },
