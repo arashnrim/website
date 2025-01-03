@@ -1,5 +1,5 @@
 ---
-import images from "../../data/images";
+import images from "@data/images";
 import { Image } from "astro:assets";
 ---
 
@@ -36,14 +36,14 @@ import { Image } from "astro:assets";
 </section>
 
 <script>
-  import images from "../../data/images";
+  import images from "@data/images";
 
   const imageElements = document.querySelectorAll("#hero__gallery > img");
   const missionElement = document.querySelector("#hero__text > h2");
 
   const supportsHover = window.matchMedia("(hover: hover)").matches;
   const eventStart = supportsHover ? "mouseenter" : "click";
-  let timeout: number;
+  let timeout: NodeJS.Timeout | null = null;
   let activeElement: HTMLElement | null = null;
 
   // Waits for the DOM to be fully loaded before adding the animation to the images

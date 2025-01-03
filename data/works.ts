@@ -15,14 +15,14 @@ interface Project {
   backgroundColor?: string;
 }
 
-import fivePointZeroGPAStudent from "../src/images/works/5-0-gpa-student.jpg";
-import commute from "../src/images/works/commute.png";
-import feducia from "../src/images/works/feducia.png";
-import tp from "../src/images/works/tp.png";
-import upgrade from "../src/images/works/upgrade.png";
-import beacon from "../src/images/works/beacon.png";
-import xtraBuddy from "../src/images/works/xtrabuddy.png";
-import simplyWords from "../src/images/works/simplywords.png";
+import fivePointZeroGPAStudent from "@images/works/5-0-gpa-student.jpg";
+import commute from "@images/works/commute.png";
+import feducia from "@images/works/feducia.png";
+import tp from "@images/works/tp.png";
+import upgrade from "@images/works/upgrade.png";
+import beacon from "@images/works/beacon.png";
+import xtraBuddy from "@images/works/xtrabuddy.png";
+import simplyWords from "@images/works/simplywords.png";
 
 const projects: Project[] = [
   {

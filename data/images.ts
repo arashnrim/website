@@ -1,10 +1,10 @@
-import epoch from "../src/images/epoch.jpg";
-import codeDay from "../src/images/codeday-2023.jpg";
-import wth from "../src/images/wth.jpg";
-import nycLeadersCourse from "../src/images/nyc-leaders-course.jpg";
-import awsSkillsFuture from "../src/images/aws-skillsfuture.jpg";
-import sis from "../src/images/sis.jpg";
-import github from "../src/images/github.jpg";
+import epoch from "@images/epoch.jpg";
+import codeDay from "@images/codeday-2023.jpg";
+import wth from "@images/wth.jpg";
+import nycLeadersCourse from "@images/nyc-leaders-course.jpg";
+import awsSkillsFuture from "@images/aws-skillsfuture.jpg";
+import sis from "@images/sis.jpg";
+import github from "@images/github.jpg";
 
 const images = [
   {

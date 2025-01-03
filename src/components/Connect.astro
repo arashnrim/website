@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import socials from "../../data/socials";
+import socials from "@data/socials";
 ---
 
 <section id="connect" class="container">
@@ -32,7 +32,7 @@ import socials from "../../data/socials";
 </section>
 
 <script>
-  import socials from "../../data/socials";
+  import socials from "@data/socials";
 
   const emailSubtitle = document.querySelector("#socials__email .subtitle > a");
   emailSubtitle?.addEventListener("click", () => {
