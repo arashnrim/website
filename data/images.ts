@@ -1,3 +1,4 @@
+import ocbc from "@images/ocbc.jpg";
 import epoch from "@images/epoch.jpg";
 import codeDay from "@images/codeday-2023.jpg";
 import wth from "@images/wth.jpg";
@@ -7,6 +8,11 @@ import sis from "@images/sis.jpg";
 import github from "@images/github.jpg";
 
 const images = [
+  {
+    src: ocbc,
+    alt: 'A group of people wearing white collared polo shirts and dark pants standing around a raised platform with the word "ignite" on it.',
+    text: "That's me and other interns at the launch of OCBC's Ignite internship programme in 2024.",
+  },
   {
     src: epoch,
     alt: "A person standing in between two other people looking to the side.",
