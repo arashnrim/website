@@ -17,6 +17,15 @@ const socials: Social[] = [
     iconName: "ph:pen-nib",
   },
   {
+    name: "Digital garden",
+    description:
+      "Consolidation of raw thoughts and ideas, complementing the blog",
+    url: "https://garden.arash.codes",
+    linkText: "Δ Delta",
+    id: "socials__garden",
+    iconName: "ph:plant",
+  },
+  {
     name: "Email",
     description: "A general, catch-all address for anything",
     linkText: "Click to copy",
