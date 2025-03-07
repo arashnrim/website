@@ -27,8 +27,14 @@ import { Image } from "astro:assets";
   <div id="hero__text">
     <span>Hey! I'm Arash.</span>
     <h2>
-      I'm learning to create designed, intuitive, and practical products using
-      technology.
+      I'm driven to craft <dfn title="in a way that feels natural"
+        >intuitive</dfn
+      >, <dfn title="in a way that adds meaningful value">purposeful</dfn>, and <dfn
+        title="in a way that is aesthetically pleasing and usable"
+        >well-designed</dfn
+      > things with <dfn
+        title="whether software, hardware, or anything in between">tech</dfn
+      > that works for people.
     </h2>
 
     <a id="hero__cta" href="#connect">👋 Say hi</a>
@@ -184,6 +190,12 @@ import { Image } from "astro:assets";
     margin: 0;
   }
 
+  #hero__text > h2 > dfn {
+    font-style: normal;
+    font-weight: 600;
+    cursor: help;
+    text-decoration: underline dotted;
+  }
   #hero__cta {
     display: block;
     width: fit-content;
