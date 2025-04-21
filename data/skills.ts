@@ -22,8 +22,8 @@ const skills: Skill[] = [
     category: SkillCategory.Web,
   },
   {
-    friendlyName: "CSS3",
-    iconName: "simple-icons:css3",
+    friendlyName: "CSS",
+    iconName: "simple-icons:css",
     yearLearnt: 2020,
     category: SkillCategory.Web,
   },
