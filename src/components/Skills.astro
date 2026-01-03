@@ -166,17 +166,18 @@ const sortedSkills = skills.sort((a, b) => b.yearLearnt - a.yearLearnt);
   .skills__figure-skill__header {
     display: flex;
     gap: 0.75em;
-    align-items: center;
+    align-items: start;
   }
 
   .skills__figure-skill__header > span {
     margin: 0;
-    font-weight: 700;
+    font-weight: 600;
   }
 
   [data-icon] {
     font-size: 1.5em;
     color: white;
+    margin-top: 0.2em;
   }
 
   .skills__figure-skill__badges {

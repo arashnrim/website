@@ -46,6 +46,7 @@ import { Image } from "astro:assets";
 
   const imageElements = document.querySelectorAll("#hero__gallery > img");
   const missionElement = document.querySelector("#hero__text > h2");
+  const missionHTML = missionElement?.innerHTML ?? "";
 
   const supportsHover = window.matchMedia("(hover: hover)").matches;
   const eventStart = supportsHover ? "mouseenter" : "click";
@@ -81,8 +82,7 @@ import { Image } from "astro:assets";
       if (missionElement === null) return;
       if (timeout) clearTimeout(timeout);
       timeout = setTimeout(() => {
-        missionElement.textContent =
-          "I'm learning to create designed, intuitive, and practical products using technology.";
+        missionElement.innerHTML = missionHTML;
         imageElements.forEach((imageElement) => {
           (imageElement as HTMLElement).style.filter =
             "grayScale(100%) brightness(50%)";
@@ -186,16 +186,16 @@ import { Image } from "astro:assets";
 
   #hero__text > h2 {
     font-size: var(--title);
-    font-weight: 600;
     margin: 0;
   }
 
   #hero__text > h2 > dfn {
     font-style: normal;
-    font-weight: 600;
+    font-weight: 800;
     cursor: help;
     text-decoration: underline dotted;
   }
+
   #hero__cta {
     display: block;
     width: fit-content;
