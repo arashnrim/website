@@ -191,9 +191,12 @@ import { Image } from "astro:assets";
 
   #hero__text > h2 > dfn {
     font-style: normal;
-    font-weight: 800;
     cursor: help;
     text-decoration: underline dotted;
+  }
+
+  #hero__text > h2 > :global(*) {
+    font-weight: inherit;
   }
 
   #hero__cta {
