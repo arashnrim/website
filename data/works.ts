@@ -26,6 +26,19 @@ import simplyWords from "@images/works/simplywords.png";
 
 const projects: Project[] = [
   {
+    name: "Nusantara",
+    githubLink: "https://github.com/arashnrim/homelab",
+    websiteLink: "https://garden.arash.codes/projects/homelabbing",
+    tech: [
+      { friendlyName: "Docker", iconName: "simple-icons:docker" },
+      { friendlyName: "Tailscale", iconName: "simple-icons:tailscale" },
+    ],
+    description:
+      "My personal home lab to explore self-hosted services, infrastructure management, and more.",
+    largeTile: true,
+    year: 2025,
+  },
+  {
     name: "5.0 GPA Student",
     githubLink: "https://github.com/arashnrim/5.0-gpa-student",
     tech: [
@@ -39,25 +52,10 @@ const projects: Project[] = [
     ],
     description:
       "A friendly bot that lets you learn with a study buddy about anything.",
-    largeTile: true,
+    largeTile: false,
     year: 2023,
     image: fivePointZeroGPAStudent,
     backgroundColor: "#CCCCCC",
-  },
-  {
-    name: "SimplyWords",
-    githubLink: "https://github.com/SimplyWordsTeam/SimplyWords",
-    tech: [
-      { friendlyName: "Java", iconName: "devicon-plain:java" },
-      { friendlyName: "Android", iconName: "simple-icons:android" },
-      { friendlyName: "OpenAI GPT", iconName: "simple-icons:openai" },
-    ],
-    description:
-      "An Android app for senior Singaporeans to understand content in digital services better.",
-    largeTile: true,
-    year: 2023,
-    image: simplyWords,
-    backgroundColor: "#17322A",
   },
   {
     name: "XtraBuddy",
@@ -70,7 +68,7 @@ const projects: Project[] = [
     ],
     description:
       "An Android app that helps you find buddies to do activities with.",
-    largeTile: true,
+    largeTile: false,
     year: 2022,
     image: xtraBuddy,
     backgroundColor: "#0080FF",
@@ -109,6 +107,21 @@ const projects: Project[] = [
     year: 2022,
     image: commute,
     backgroundColor: "#005DFF",
+  },
+  {
+    name: "SimplyWords",
+    githubLink: "https://github.com/SimplyWordsTeam/SimplyWords",
+    tech: [
+      { friendlyName: "Java", iconName: "devicon-plain:java" },
+      { friendlyName: "Android", iconName: "simple-icons:android" },
+      { friendlyName: "OpenAI GPT", iconName: "simple-icons:openai" },
+    ],
+    description:
+      "An Android app for senior Singaporeans to understand content in digital services better.",
+    largeTile: true,
+    year: 2023,
+    image: simplyWords,
+    backgroundColor: "#17322A",
   },
   {
     name: "tp",
