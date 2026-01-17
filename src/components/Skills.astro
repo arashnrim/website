@@ -45,22 +45,41 @@ const sortedSkills = skills.sort((a, b) => b.yearLearnt - a.yearLearnt);
 </section>
 
 <script>
-  const divs = [
-    document.querySelector("#skills__figure-code"),
-    document.querySelector("#skills__figure-preview"),
+  const divs: Array<HTMLElement | null> = [
+    document.querySelector("#skills__figure-code") as HTMLElement | null,
+    document.querySelector("#skills__figure-preview") as HTMLElement | null,
   ];
 
-  // Synchronize scrolling of the two divs
+  // Synchronize scrolling of the two divs using scroll ratio to account for different heights
+  const syncingDivs = new WeakMap<HTMLElement, number>();
+  const markSyncing = (div: HTMLElement) => {
+    const existing = syncingDivs.get(div);
+    if (existing) window.clearTimeout(existing);
+    const timeoutId = window.setTimeout(() => syncingDivs.delete(div), 350);
+    syncingDivs.set(div, timeoutId);
+  };
+  const isProgrammaticScroll = (div: HTMLElement) => syncingDivs.has(div);
+
+  const syncScroll = (sourceDiv: HTMLElement | null) => {
+    if (!sourceDiv) return;
+    if (isProgrammaticScroll(sourceDiv)) return; // Ignores scroll events triggered by our own sync
+
+    const sourceScrollable = sourceDiv.scrollHeight - sourceDiv.clientHeight;
+    if (sourceScrollable <= 0) return;
+
+    const ratio = sourceDiv.scrollTop / sourceScrollable;
+
+    divs.forEach((otherDiv) => {
+      if (!otherDiv || otherDiv === sourceDiv) return;
+      const otherScrollable = otherDiv.scrollHeight - otherDiv.clientHeight;
+      const targetTop = ratio * otherScrollable;
+      markSyncing(otherDiv);
+      otherDiv.scrollTo({ top: targetTop, behavior: "smooth" });
+    });
+  };
+
   divs.forEach((div) => {
-    if (div) {
-      div.addEventListener("scroll", (e) => {
-        divs.forEach((otherDiv) => {
-          if (otherDiv && otherDiv !== div) {
-            otherDiv.scrollTop = div.scrollTop;
-          }
-        });
-      });
-    }
+    div?.addEventListener("scroll", () => syncScroll(div));
   });
 </script>
 

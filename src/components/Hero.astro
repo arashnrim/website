@@ -44,8 +44,11 @@ import { Image } from "astro:assets";
 <script>
   import images from "@data/images";
 
-  const imageElements = document.querySelectorAll("#hero__gallery > img");
-  const missionElement = document.querySelector("#hero__text > h2");
+  const imageElements: NodeListOf<HTMLImageElement> = document.querySelectorAll(
+    "#hero__gallery > img"
+  );
+  const missionElement: HTMLElement | null =
+    document.querySelector("#hero__text > h2");
   const missionHTML = missionElement?.innerHTML ?? "";
 
   const supportsHover = window.matchMedia("(hover: hover)").matches;
@@ -57,24 +60,22 @@ import { Image } from "astro:assets";
   document.onreadystatechange = () => {
     if (document.readyState === "complete") {
       imageElements.forEach((imageElement) => {
-        (imageElement as HTMLImageElement).style.opacity = "1";
-        (imageElement as HTMLImageElement).style.animation =
-          `1.25s ease-out calc(var(--animation-order) * 200ms) 1 present`;
-        (imageElement as HTMLImageElement).style.animationFillMode =
-          "backwards";
+        imageElement.style.opacity = "1";
+        imageElement.style.animation = `1.25s ease-out calc(var(--animation-order) * 200ms) 1 present`;
+        imageElement.style.animationFillMode = "backwards";
       });
     }
   };
 
   // Replaces the text in the second span element in #hero__gallery-text on non-hover devices
-  var detailsDuration = 3000;
+  var detailsDuration = 5000;
+  var fadeDuration = 300;
   if (!supportsHover) {
     (
       document.querySelector(
         "#hero__gallery-text > span:last-child"
       ) as HTMLElement
     ).textContent = "Tap on them, too!";
-    detailsDuration = 4000;
   }
 
   imageElements.forEach((imageElement, index) => {
@@ -82,11 +83,14 @@ import { Image } from "astro:assets";
       if (missionElement === null) return;
       if (timeout) clearTimeout(timeout);
       timeout = setTimeout(() => {
-        missionElement.innerHTML = missionHTML;
-        imageElements.forEach((imageElement) => {
-          (imageElement as HTMLElement).style.filter =
-            "grayScale(100%) brightness(50%)";
-        });
+        missionElement.style.opacity = "0";
+        setTimeout(() => {
+          missionElement.innerHTML = missionHTML;
+          missionElement.style.opacity = "1";
+          imageElements.forEach((imageElement) => {
+            imageElement.style.filter = "grayScale(100%) brightness(50%)";
+          });
+        }, fadeDuration);
       }, detailsDuration);
 
       if (activeElement) {
@@ -94,22 +98,30 @@ import { Image } from "astro:assets";
           "grayScale(100%) brightness(50%)";
       }
 
-      missionElement.innerHTML = images[index].text;
-      (imageElement as HTMLElement).style.filter =
-        "grayScale(0%) brightness(100%)";
+      missionElement.style.opacity = "0";
+      setTimeout(() => {
+        missionElement.innerHTML = images[index].text;
+        missionElement.style.opacity = "1";
+        imageElement.style.filter = "grayScale(0%) brightness(100%)";
 
-      activeElement = imageElement as HTMLElement;
+        activeElement = imageElement;
+      }, fadeDuration);
     });
   });
 
   const greetings = ["Hey!", "Hello!", "Hi there,", "Hiya,", "Selamat datang!"];
   setInterval(() => {
-    const greetingElement = document.querySelector("#hero__text > span");
+    const greetingElement: HTMLElement | null =
+      document.querySelector("#hero__text > span");
     if (greetingElement === null) return;
 
-    const randomGreeting =
-      greetings[Math.floor(Math.random() * greetings.length)];
-    greetingElement.textContent = randomGreeting + " I'm Arash.";
+    greetingElement.style.opacity = "0";
+    setTimeout(() => {
+      const randomGreeting =
+        greetings[Math.floor(Math.random() * greetings.length)];
+      greetingElement.textContent = randomGreeting + " I'm Arash.";
+      greetingElement.style.opacity = "1";
+    }, fadeDuration);
   }, 10000);
 </script>
 
@@ -182,11 +194,13 @@ import { Image } from "astro:assets";
 
   #hero__text > span {
     font-size: var(--subtitle);
+    transition: opacity 0.2s ease-in-out;
   }
 
   #hero__text > h2 {
     font-size: var(--title);
     margin: 0;
+    transition: opacity 0.2s ease-in-out;
   }
 
   #hero__text > h2 > dfn {
