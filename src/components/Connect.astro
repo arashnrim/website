@@ -6,11 +6,10 @@ import socials from "@data/socials";
 <section id="connect" class="container">
   <h1 class="title">Let's reach out!</h1>
   <p>
-    Don't be a stranger, especially now that you've scrolled this far! I'm
-    always open to hearing about new opportunities, whether a new project or
-    just a friendly chat. Feel free to reach out through any of the platforms
-    below. I'm also now learning to step out of my comfort zone and meet new
-    people, so I think it's all the more reason to connect and say hi!
+    Don't be a stranger, especially now that you've scrolled this far! My inbox
+    is always open for your ideas, opportunities, and friendly chats. I can
+    imagine how daunting it might feel to reach out, but I'll be sure to say hi
+    back!
   </p>
 
   <div id="connect__grid">
@@ -41,7 +40,7 @@ import socials from "@data/socials";
       emailSubtitle.textContent = "Copied to clipboard!";
       setTimeout(() => {
         emailSubtitle.textContent = socials.find(
-          (s) => s.id === "socials__email"
+          (s) => s.id === "socials__email",
         )!.linkText!;
       }, 2000);
     });
