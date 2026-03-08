@@ -1,0 +1,43 @@
+---
+const { title } = Astro.props;
+---
+
+<title>{title ? `${title} | Arash Nur Iman` : "Arash Nur Iman"}</title>
+<meta
+  name="description"
+  content="A student and developer from Singapore learning about creating designed, intuitive, and practical products using technology."
+/>
+
+<!-- Open Graph -->
+<meta
+  property="og:title"
+  content={title ? `${title} | Arash Nur Iman` : "Arash Nur Iman"}
+/>
+<meta property="og:type" content="website" />
+<meta
+  property="og:description"
+  content="A student and developer from Singapore learning about creating designed, intuitive, and practical products using technology."
+/>
+<meta property="og:image" content="http://arash.codes/ogp.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta
+  property="og:image:alt"
+  content="A collage of different pictures with a text overlay of 'Arash Nur Iman' and 'A student and developer from Singapore learning about creating designed, intuitive, and practical products using technology.'"
+/>
+<meta property="og:locale" content="en_SG" />
+<meta property="og:site_name" content="Arash Nur Iman" />
+<meta property="og:url" content={Astro.url} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@arashnrim" />
+<meta
+  name="twitter:description"
+  content="A student and developer from Singapore learning about creating designed, intuitive, and practical products using technology."
+/>
+<meta
+  name="twitter:title"
+  content={title ? `${title} | Arash Nur Iman` : "Arash Nur Iman"}
+/>

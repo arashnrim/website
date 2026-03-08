@@ -1,7 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import GlobalStyles from "@styles/GlobalStyles.astro";
-import Footer from "@components/Footer.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
 const strings: string[] = [
   "Uh oh...",
@@ -20,53 +19,35 @@ export const prerender = false;
 const randomString = getRandomString();
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{randomString} | Arash Nur Iman</title>
-    <meta
-      name="description"
-      content="A student and developer from Singapore learning about creating designed, intuitive, and practical products using technology."
-    />
-  </head>
+<BaseLayout title={randomString}>
+  <main class="container">
+    <Icon name="solar:question-square-bold-duotone" />
+    <h1 class="subtitle">{randomString}</h1>
+    <p>
+      There isn't a page that exists here. If you're here by mistake, you can go
+      back to the <a href="/">home page</a>.
+    </p>
+  </main>
 
-  <body>
-    <main class="container">
-      <Icon name="solar:question-square-bold-duotone" />
-      <h1 class="subtitle">{randomString}</h1>
-      <p>
-        There isn't a page that exists here. If you're here by mistake, you can
-        go back to the <a href="/">home page</a>.
-      </p>
-    </main>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-    <Footer />
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+    }
 
-    <style>
-      body {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
-
-      main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        flex: 1;
-      }
-
-      [data-icon] {
-        font-size: calc(var(--title) * 2);
-        margin-bottom: 1rem;
-      }
-    </style>
-  </body>
-
-  <GlobalStyles />
-</html>
+    [data-icon] {
+      font-size: calc(var(--title) * 2);
+      margin-bottom: 1rem;
+    }
+  </style>
+</BaseLayout>

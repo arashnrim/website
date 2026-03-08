@@ -1,40 +1,16 @@
 ---
-import GlobalStyles from "@styles/GlobalStyles.astro";
-import Header from "@components/Header.astro";
 import Hero from "@components/Hero.astro";
 import Preface from "@components/Preface.astro";
 import Works from "@components/Works.astro";
 import Skills from "@components/Skills.astro";
 import Connect from "@components/Connect.astro";
-import Footer from "@components/Footer.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Arash Nur Iman</title>
-    <meta
-      name="description"
-      content="A student and developer from Singapore learning about creating designed, intuitive, and practical products using technology."
-    />
-    <script
-      defer
-      src="https://analytics.arash.codes/script.js"
-      data-website-id="96af718a-14d8-4184-8231-bcb3b2778821"></script>
-  </head>
-
-  <body>
-    <!-- <Header /> -->
-    <Hero />
-    <Preface />
-    <Works />
-    <Skills />
-    <Connect />
-    <Footer />
-  </body>
-
-  <GlobalStyles />
-</html>
+<BaseLayout>
+  <Hero />
+  <Preface />
+  <Works />
+  <Skills />
+  <Connect />
+</BaseLayout>
