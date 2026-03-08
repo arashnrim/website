@@ -67,55 +67,40 @@
 </section>
 
 <script>
-  const preface__time = document.getElementById("preface__time");
+  const preface__time = document.querySelector("#preface__time")!;
   setInterval(() => {
+    // February 2019 is chosen here as a rough estimate of when I started coding :)
     const time = new Date().valueOf() - new Date("02/01/2019").valueOf();
     const years = time / 31536000000;
-    preface__time!.textContent = "~" + years.toFixed(8);
+    preface__time.textContent = "~" + years.toFixed(8);
   }, 100);
 
-  const preface__errors = document.getElementById("preface__errors");
-  const text = document.getElementById("preface")!.querySelectorAll("p");
-  const sprinkles = document
-    .getElementById("preface")!
-    .querySelectorAll(".sprinkle");
-  preface__errors!.addEventListener("mouseenter", () => {
-    text.forEach((p) => {
-      p.style.opacity = "0.1";
+  const prefaceErrors = document.querySelector<HTMLElement>("#preface__errors");
+  const paragraphs =
+    document.querySelectorAll<HTMLElement>("#preface > div > p");
+  const sprinkles =
+    document.querySelectorAll<HTMLElement>("#preface .sprinkle");
+
+  const setPrefaceFocus = (active: boolean) => {
+    paragraphs.forEach((paragraph) => {
+      paragraph.style.opacity = active ? "0.1" : "";
     });
-    sprinkles.forEach((s) => {
-      (s as HTMLElement).style.opacity = "1";
+
+    sprinkles.forEach((sprinkle) => {
+      sprinkle.style.opacity = active ? "1" : "0.15";
     });
-  });
-  preface__errors!.addEventListener("mouseleave", () => {
-    text.forEach((p) => {
-      p.removeAttribute("style");
-    });
-    sprinkles.forEach((s) => {
-      (s as HTMLElement).style.opacity = "0.15";
-    });
-  });
-  preface__errors!.addEventListener("touchleave", () => {
-    text.forEach((p) => {
-      p.removeAttribute("style");
-    });
-    sprinkles.forEach((s) => {
-      (s as HTMLElement).removeAttribute("style");
-    });
-  });
+  };
+
+  prefaceErrors?.addEventListener("mouseenter", () => setPrefaceFocus(true));
+  prefaceErrors?.addEventListener("mouseleave", () => setPrefaceFocus(false));
 
   // Sprinkles around the code blocks and only when they're in view for performance
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        sprinkles.forEach((s) => {
-          (s as HTMLElement).style.animationPlayState = "running";
-        });
-      } else {
-        sprinkles.forEach((s) => {
-          (s as HTMLElement).style.animationPlayState = "paused";
-        });
-      }
+      const animationState = entry.isIntersecting ? "running" : "paused";
+      sprinkles.forEach((sprinkle) => {
+        (sprinkle as HTMLElement).style.animationPlayState = animationState;
+      });
     });
   });
   observer.observe(document.getElementById("preface")!);
@@ -155,7 +140,7 @@
   }
 
   figure > code:nth-child(2) {
-    top: 35vh;
+    bottom: 35vh;
     left: 10vw;
     max-width: 50vmin;
     font-size: 1.25rem;
@@ -163,13 +148,13 @@
 
   figure > code:nth-child(3) {
     top: 26vh;
-    right: 20vw;
+    left: 50vw;
     max-width: 30vmin;
     font-size: 1rem;
   }
 
   figure > code:nth-child(4) {
-    top: 40vh;
+    bottom: 25vh;
     right: 7.5vw;
     max-width: 25vmin;
     font-size: 1.25rem;
@@ -178,12 +163,6 @@
   @media only screen and (min-width: 768px) {
     figure {
       display: block;
-    }
-  }
-
-  @media only screen and (min-width: 1440px) {
-    figure > code:nth-child(3) {
-      right: 32.5vw;
     }
   }
 

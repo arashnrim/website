@@ -45,84 +45,103 @@ import { Image } from "astro:assets";
   import images from "@data/images";
 
   const imageElements: NodeListOf<HTMLImageElement> = document.querySelectorAll(
-    "#hero__gallery > img"
+    "#hero__gallery > img",
   );
-  const missionElement: HTMLElement | null =
-    document.querySelector("#hero__text > h2");
-  const missionHTML = missionElement?.innerHTML ?? "";
+  const missionElement: HTMLHeadingElement =
+    document.querySelector("#hero__text > h2")!;
+  const missionHTML = missionElement.innerHTML;
 
   const supportsHover = window.matchMedia("(hover: hover)").matches;
-  const eventStart = supportsHover ? "mouseenter" : "click";
-  let timeout: NodeJS.Timeout | null = null;
-  let activeElement: HTMLElement | null = null;
+  const startingEvent = supportsHover ? "mouseenter" : "click";
+  const DETAILS_DURATION = 5000;
+  const FADE_DURATION = 300;
+  const GREETING_INTERVAL = 10000;
 
-  // Waits for the DOM to be fully loaded before adding the animation to the images
-  document.onreadystatechange = () => {
-    if (document.readyState === "complete") {
-      imageElements.forEach((imageElement) => {
-        imageElement.style.opacity = "1";
-        imageElement.style.animation = `1.25s ease-out calc(var(--animation-order) * 200ms) 1 present`;
-        imageElement.style.animationFillMode = "backwards";
-      });
-    }
+  let resetTimeout: NodeJS.Timeout | null = null;
+  let activeImageElement: HTMLElement | null = null;
+
+  const animateImagesOnLoad = () => {
+    imageElements.forEach((imageElement) => {
+      imageElement.style.opacity = "1";
+      imageElement.style.animation = `1.25s ease-out calc(var(--animation-order) * 200ms) 1 present`;
+      imageElement.style.animationFillMode = "backwards";
+    });
   };
 
-  // Replaces the text in the second span element in #hero__gallery-text on non-hover devices
-  var detailsDuration = 5000;
-  var fadeDuration = 300;
-  if (!supportsHover) {
-    (
-      document.querySelector(
-        "#hero__gallery-text > span:last-child"
-      ) as HTMLElement
-    ).textContent = "Tap on them, too!";
-  }
+  const updateMissionText = (htmlContent: string) => {
+    missionElement.style.opacity = "0";
+    setTimeout(() => {
+      missionElement.innerHTML = htmlContent;
+      missionElement.style.opacity = "1";
+    }, FADE_DURATION);
+  };
 
-  imageElements.forEach((imageElement, index) => {
-    imageElement.addEventListener(eventStart, () => {
-      if (missionElement === null) return;
-      if (timeout) clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        missionElement.style.opacity = "0";
-        setTimeout(() => {
-          missionElement.innerHTML = missionHTML;
-          missionElement.style.opacity = "1";
-          imageElements.forEach((imageElement) => {
-            imageElement.style.filter = "grayScale(100%) brightness(50%)";
-          });
-        }, fadeDuration);
-      }, detailsDuration);
-
-      if (activeElement) {
-        (activeElement as HTMLElement).style.filter =
-          "grayScale(100%) brightness(50%)";
-      }
-
-      missionElement.style.opacity = "0";
-      setTimeout(() => {
-        missionElement.innerHTML = images[index].text;
-        missionElement.style.opacity = "1";
-        imageElement.style.filter = "grayScale(0%) brightness(100%)";
-
-        activeElement = imageElement;
-      }, fadeDuration);
+  const resetImages = () => {
+    imageElements.forEach((imageElement) => {
+      imageElement.style.filter = "grayscale(100%) brightness(50%)";
     });
-  });
+  };
 
-  const greetings = ["Hey!", "Hello!", "Hi there,", "Hiya,", "Selamat datang!"];
-  setInterval(() => {
-    const greetingElement: HTMLElement | null =
-      document.querySelector("#hero__text > span");
-    if (greetingElement === null) return;
+  const handleImageInteraction = (
+    imageElement: HTMLImageElement,
+    index: number,
+  ) => {
+    if (resetTimeout) clearTimeout(resetTimeout);
+
+    resetTimeout = setTimeout(() => {
+      updateMissionText(missionHTML);
+      resetImages();
+    }, DETAILS_DURATION);
+
+    if (activeImageElement) {
+      activeImageElement.style.filter = "grayscale(100%) brightness(50%)";
+    }
+
+    updateMissionText(images[index].text);
+    imageElement.style.filter = "grayscale(0%) brightness(100%)";
+    activeImageElement = imageElement;
+  };
+
+  const rotateGreeting = () => {
+    const greetings = [
+      "Hey!",
+      "Hello!",
+      "Hi there,",
+      "Hiya,",
+      "Selamat datang!",
+    ];
+    const greetingElement: HTMLElement =
+      document.querySelector("#hero__text > span")!;
 
     greetingElement.style.opacity = "0";
     setTimeout(() => {
       const randomGreeting =
         greetings[Math.floor(Math.random() * greetings.length)];
-      greetingElement.textContent = randomGreeting + " I'm Arash.";
+      greetingElement.textContent = `${randomGreeting} I'm Arash.`;
       greetingElement.style.opacity = "1";
-    }, fadeDuration);
-  }, 10000);
+    }, FADE_DURATION);
+  };
+
+  document.onreadystatechange = () => {
+    if (document.readyState === "complete") {
+      animateImagesOnLoad();
+    }
+  };
+
+  if (!supportsHover) {
+    const instructionElement = document.querySelector(
+      "#hero__gallery-text > span:last-child",
+    ) as HTMLElement;
+    instructionElement.textContent = "Tap on them, too!";
+  }
+
+  imageElements.forEach((imageElement, index) => {
+    imageElement.addEventListener(startingEvent, () => {
+      handleImageInteraction(imageElement, index);
+    });
+  });
+
+  setInterval(rotateGreeting, GREETING_INTERVAL);
 </script>
 
 <style>
@@ -137,10 +156,10 @@ import { Image } from "astro:assets";
   }
 
   #hero {
-    position: relative;
-    min-height: 100vh;
-    overflow-x: scroll;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: scroll;
     background:
       radial-gradient(#1f1f1f, 2.5px, transparent 3px) 0 0 / 50px 50px,
       linear-gradient(to bottom, #0a0a0a, transparent 500%);
@@ -148,7 +167,7 @@ import { Image } from "astro:assets";
 
   #hero__gallery {
     display: flex;
-    position: absolute;
+    height: 360px;
     background-color: #0a0a0a;
   }
 
@@ -177,9 +196,9 @@ import { Image } from "astro:assets";
 
   #hero__text {
     position: sticky;
-    align-self: flex-end;
-    left: calc(var(--section-padding) - 2em);
-    margin: calc(var(--section-padding) - 2em);
+    align-content: end;
+    left: calc(var(--section-padding) - 1em);
+    margin: calc(var(--section-padding) - 1em);
     padding: 2em;
     background: linear-gradient(
       180deg,
@@ -239,6 +258,12 @@ import { Image } from "astro:assets";
     #hero__text {
       left: calc(var(--section-padding) / 2 - 2em);
       margin: calc(var(--section-padding) / 2 - 2em);
+    }
+  }
+
+  @media only screen and (min-height: 1280px) {
+    #hero {
+      min-height: 100vh;
     }
   }
 </style>
