@@ -8,10 +8,9 @@
 
     --radius: 1em;
 
-    --subtitle: clamp(1.5rem, 5vw, 2.5rem);
-    --title: clamp(2rem, 5vw, 3rem);
-    --body: clamp(1rem, 5vw, 1.1rem);
-    --badge: clamp(0.75rem, 5vw, 1rem);
+    --body: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
+    --subtitle: clamp(1.35rem, 1.2206rem + 0.575vw, 1.6663rem);
+    --title: clamp(1.944rem, 1.5281rem + 1.8486vw, 2.9607rem);
 
     --sans:
       "General Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -24,16 +23,13 @@
   @media screen and (min-width: 768px) {
     :root {
       --section-padding: 6em;
-
-      --subtitle: clamp(1.5rem, 5vw, 2.5rem);
-      --title: clamp(3rem, 5vw, 4rem);
-      --body: clamp(1.25rem, 5vw, 1.3rem);
     }
   }
 
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 2em;
+    font-size: var(--body);
   }
 
   body {
@@ -42,7 +38,7 @@
   }
 
   * {
-    color: white;
+    color: #ffffff;
     font-family: var(--sans);
     font-weight: 500;
   }
@@ -63,20 +59,20 @@
 
   p,
   span {
-    font-size: var(--body);
     max-width: 920px;
     line-height: 1.5;
   }
 
   a {
     text-decoration: none;
-    border: 1px solid white;
+    border: 1px solid #ffffff;
     padding: 0 2.5px;
     font-weight: 600;
   }
 
   code {
     font-family: var(--mono);
+    font-size: calc(var(--body) * 0.725);
   }
 
   h1,
@@ -111,7 +107,6 @@
   }
 
   .badge {
-    font: var(--badge);
     width: fit-content;
     background-color: #0a0a0a88;
     padding: 0.2em 0.5em;
