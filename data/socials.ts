@@ -9,6 +9,14 @@ interface Social {
 
 const socials: Social[] = [
   {
+    name: "Guestbook",
+    description: "Make your presence known and say hi",
+    url: "https://guestbook.arash.codes",
+    linkText: "Guestbook",
+    id: "socials__guestbook",
+    iconName: "ph:hand-waving",
+  },
+  {
     name: "Blog",
     description: "Sharing experiences, thoughts, and stories about tech",
     url: "https://blog.arash.codes",
