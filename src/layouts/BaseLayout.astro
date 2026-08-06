@@ -2,6 +2,7 @@
 import GlobalStyles from "@styles/GlobalStyles.astro";
 import Footer from "@components/Footer.astro";
 import SEO from "@components/SEO.astro";
+import { Font } from "astro:assets";
 
 const { title } = Astro.props;
 ---
@@ -12,6 +13,8 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <Font cssVariable="--font-general-sans" />
+    <Font cssVariable="--font-jetbrains-mono" />
     <SEO title={title} />
   </head>
 
