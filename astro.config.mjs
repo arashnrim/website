@@ -46,6 +46,7 @@ export default defineConfig({
       },
     },
   ],
+  compressHTML: true,
   integrations: [icon()],
   adapter: vercel(),
   redirects: {
