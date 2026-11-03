@@ -8,11 +8,11 @@ const sortedSkills = skills.sort((a, b) => b.yearLearnt - a.yearLearnt);
 <section id="skills" class="container">
   <h1 class="title">Here's what I know:</h1>
   <p>
-    My skills are always a work in progress, and I firmly believe that there's
-    always something to discover and learn. Over the years, I've had the
-    privilege of accessing opportunities to hone my skills, so I intend to keep
-    going and get better at them. Especially with tech, there are just so many
-    things waiting for you to find! 🚀
+    What I know is always a work in progress! Through the years, I've gotten the
+    privilege to learn many new skills and put them into practice. Especially
+    with tech, where things are ever-changing, I try to keep up with the latest
+    when I have the time and resources to. You really do learn a lot by doing,
+    especially with mistakes along the way — exactly how I approach learning!
   </p>
 
   <div>
@@ -180,11 +180,14 @@ const sortedSkills = skills.sort((a, b) => b.yearLearnt - a.yearLearnt);
   .skills__figure-skill__header {
     display: flex;
     gap: 0.75em;
-    align-items: start;
+    align-items: center;
+  }
+
+  .skills__figure-skill__header > * {
+    margin: 0;
   }
 
   .skills__figure-skill__header > span {
-    margin: 0;
     font-weight: 700;
   }
 

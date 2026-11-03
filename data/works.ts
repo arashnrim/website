@@ -32,6 +32,8 @@ const projects: Project[] = [
     tech: [
       { friendlyName: "Docker", iconName: "simple-icons:docker" },
       { friendlyName: "Tailscale", iconName: "simple-icons:tailscale" },
+      { friendlyName: "Git", iconName: "simple-icons:git" },
+      { friendlyName: "Cloudflare", iconName: "simple-icons:cloudflare" },
     ],
     description:
       "My personal home lab to explore self-hosted services, infrastructure management, and more.",
