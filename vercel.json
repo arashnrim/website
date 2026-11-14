@@ -4,6 +4,10 @@
     {
       "source": "/.well-known/matrix/client",
       "headers": [{ "key": "Access-Control-Allow-Origin", "value": "*" }]
+    },
+    {
+      "source": "/.well-known/matrix/(.*)",
+      "headers": [{ "key": "Content-Type", "value": "application/json" }]
     }
   ]
 }
