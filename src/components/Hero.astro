@@ -9,35 +9,36 @@ import { Image } from "astro:assets";
       <span>Scroll right for more pictures! →</span>
       <span>Hover over them, too!</span>
     </div>
-    {
-      images.map((image, index) => (
-        <Image
-          src={image.src}
-          alt={image.alt}
-          height={360}
-          loading={index > 1 ? "lazy" : "eager"}
-          format={"webp"}
-          style={{ "--animation-order": index }}
-          draggable={"false"}
-        />
-      ))
-    }
+    {images.map((image, index) => (
+      <Image
+        src={image.src}
+        alt={image.alt}
+        height={360}
+        loading={index > 1 ? "lazy" : "eager"}
+        format={"webp"}
+        style={{ "--animation-order": index }}
+        draggable={"false"}
+      />
+    ))}
   </div>
 
   <div id="hero__text">
     <span>Hey! I'm Arash.</span>
     <h2>
-      I'm driven to craft <dfn title="in a way that feels natural"
-        >intuitive</dfn
-      >, <dfn title="in a way that adds meaningful value">purposeful</dfn>, and <dfn
-        title="in a way that is aesthetically pleasing and usable"
-        >well-designed</dfn
-      > things with <dfn
-        title="whether software, hardware, or anything in between">tech</dfn
-      > that works for people.
+      I'm driven to craft{" "}
+      <dfn title="in a way that feels natural">intuitive</dfn>,{" "}
+      <dfn title="in a way that adds meaningful value">purposeful</dfn>, and{" "}
+      <dfn title="in a way that is aesthetically pleasing and usable">
+        well-designed
+      </dfn>{" "}
+      things with{" "}
+      <dfn title="whether software, hardware, or anything in between">tech</dfn>{" "}
+      that works for people.
     </h2>
 
-    <a id="hero__cta" href="#connect">👋 Say hi</a>
+    <a id="hero__cta" href="#connect">
+      👋 Say hi
+    </a>
   </div>
 </section>
 
@@ -47,12 +48,14 @@ import { Image } from "astro:assets";
   const imageElements: NodeListOf<HTMLImageElement> = document.querySelectorAll(
     "#hero__gallery > img",
   );
+  const galleryElement: HTMLElement = document.querySelector("#hero__gallery")!;
   const missionElement: HTMLHeadingElement =
     document.querySelector("#hero__text > h2")!;
   const missionHTML = missionElement.innerHTML;
 
   const supportsHover = window.matchMedia("(hover: hover)").matches;
   const startingEvent = supportsHover ? "mouseenter" : "click";
+  const GALLERY_EDGE_ZONE = 0.15;
   const DETAILS_DURATION = 5000;
   const FADE_DURATION = 300;
   const GREETING_INTERVAL = 10000;
@@ -141,6 +144,42 @@ import { Image } from "astro:assets";
     });
   });
 
+  galleryElement.addEventListener("mousemove", (event) => {
+    const galleryBounds = galleryElement.getBoundingClientRect();
+    const pointerPosition = event.clientX - galleryBounds.left;
+    const edgeZoneWidth = galleryBounds.width * GALLERY_EDGE_ZONE;
+
+    if (pointerPosition <= edgeZoneWidth) {
+      galleryElement.style.cursor = "w-resize";
+    } else if (pointerPosition >= galleryBounds.width - edgeZoneWidth) {
+      galleryElement.style.cursor = "e-resize";
+    } else {
+      galleryElement.style.cursor = "";
+    }
+  });
+
+  galleryElement.addEventListener("mouseleave", () => {
+    galleryElement.style.cursor = "";
+  });
+
+  galleryElement.addEventListener("click", (event) => {
+    const galleryBounds = galleryElement.getBoundingClientRect();
+    const pointerPosition = event.clientX - galleryBounds.left;
+    const edgeZoneWidth = galleryBounds.width * GALLERY_EDGE_ZONE;
+
+    if (pointerPosition <= edgeZoneWidth) {
+      galleryElement.scrollBy({
+        left: -galleryBounds.width * 0.8,
+        behavior: "smooth",
+      });
+    } else if (pointerPosition >= galleryBounds.width - edgeZoneWidth) {
+      galleryElement.scrollBy({
+        left: galleryBounds.width * 0.8,
+        behavior: "smooth",
+      });
+    }
+  });
+
   setInterval(rotateGreeting, GREETING_INTERVAL);
 </script>
 
@@ -159,7 +198,6 @@ import { Image } from "astro:assets";
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow-x: scroll;
     background:
       radial-gradient(#1f1f1f, 2.5px, transparent 3px) 0 0 / 50px 50px,
       linear-gradient(to bottom, #0a0a0a, transparent 500%);
@@ -168,7 +206,21 @@ import { Image } from "astro:assets";
   #hero__gallery {
     display: flex;
     height: 360px;
+    flex-shrink: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-color: #1f1f1f transparent;
+    scrollbar-width: thin;
     background-color: #0a0a0a;
+  }
+
+  #hero__gallery::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  #hero__gallery::-webkit-scrollbar-thumb {
+    background-color: #1f1f1f;
+    border-radius: 3px;
   }
 
   #hero__gallery-text {
@@ -185,6 +237,7 @@ import { Image } from "astro:assets";
   }
 
   #hero__gallery > img {
+    flex: 0 0 auto;
     height: 360px;
     filter: grayscale(100%) brightness(50%);
     transition:
